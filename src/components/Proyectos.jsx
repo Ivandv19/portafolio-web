@@ -79,7 +79,7 @@ const Proyectos = () => {
       <SectionTitle>Proyectos</SectionTitle>
       <ProjectsList>
         <ProjectItem>
-          <ProjectImage src="/public/img/aluraflix.png" alt="Descripción del Proyecto 1" />
+          <ProjectImage src="/img/aluraflix.png" alt="Descripción del Proyecto 1" />
           <ProyectInfo>
             <ProjectTitle>AluraFlix</ProjectTitle>
             <ProjectDescription>Aluraflix es una aplicación web diseñada para gestionar y explorar una colección de videos. La aplicación permite a los usuarios visualizar videos filtrados por categoría, eliminar y editar videos, y crear nuevos videos mediante un formulario.</ProjectDescription>
@@ -95,7 +95,7 @@ const Proyectos = () => {
         </ProjectItem>
 
         <ProjectItem>
-          <ProjectImage src="/public/img/alura-cinema.png" alt="Descripción del Proyecto 1" />
+          <ProjectImage src="/img/alura-cinema.png" alt="Descripción del Proyecto 1" />
           <ProyectInfo>
             <ProjectTitle>Alura Cinema</ProjectTitle>
             <ProjectDescription>Este proyecto es una aplicación para gestionar y visualizar videos, con funcionalidades como vizualizar y agregar a una seccion especial de favoritos. Está diseñado para proporcionar una experiencia interactiva y visualmente atractiva.</ProjectDescription>
@@ -112,7 +112,7 @@ const Proyectos = () => {
 
 
         <ProjectItem>
-          <ProjectImage src="/public/img/encriptador.png" alt="Descripción del Proyecto 1" />
+          <ProjectImage src="/img/encriptador.png" alt="Descripción del Proyecto 1" />
           <ProyectInfo>
             <ProjectTitle>Encriptador de Texto</ProjectTitle>
             <ProjectDescription> Este proyecto es una aplicación web simple que permite encriptar y desencriptar texto. Está desarrollado con HTML, CSS y JavaScript.</ProjectDescription>

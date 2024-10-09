@@ -69,7 +69,7 @@ const Header = () => {
     return (
         <HeaderContainer>
             <Marca>
-                <Logo src="/public/img/logo.gif" alt="Logo de Portafolio" />
+                <Logo src="/img/logo.gif" alt="Logo de Portafolio" />
                 <p>Mi Portafolio</p>
             </Marca>
             <Nav>
