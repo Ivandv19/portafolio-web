@@ -57,14 +57,19 @@ const SuccessMessage = styled.p`
 const Contacto = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsSubmitted(true); // Cambia el estado a enviado
+  };
+
   return (
     <SectionContainer id="contacto">
       <SectionTitle>Contacto</SectionTitle>
       {!isSubmitted ? (
         <ContactForm
-          action="https://formspree.io/f/xeoqjwqw"
+          action="https://formspree.io/f/xeoqjwqw" // Tu endpoint de Formspree
           method="POST"
-          onSubmit={() => setIsSubmitted(true)} // Cambia el estado a enviado al enviar
+          onSubmit={handleSubmit} // Esto evita el comportamiento por defecto del formulario
         >
           <Input type="text" name="nombre" placeholder="Tu nombre" required />
           <Input type="email" name="correo" placeholder="Tu correo electrónico" required />
