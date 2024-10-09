@@ -5,6 +5,10 @@ const SectionContainer = styled.section`
   padding: 60px 20px;
   background-color: #fff; /* Color de fondo blanco */
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 `;
 
 const SectionTitle = styled.h2`
@@ -17,6 +21,7 @@ const ContactForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 60%;
 `;
 
 const Input = styled.input`
@@ -54,31 +59,60 @@ const SuccessMessage = styled.p`
   color: green;
 `;
 
+const ContactoContainer = styled.section`
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  align-items: center;
+  justify-content: center;
+
+`
+
 const Contacto = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitted(true); // Cambia el estado a enviado
+
+    // Manejo del envío del formulario
+    const form = e.target;
+    const data = new FormData(form);
+
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: data,
+      headers: {
+        'Accept': 'application/json' // Para recibir la respuesta en formato JSON
+      }
+    });
+
+    if (response.ok) {
+      setIsSubmitted(true); // Cambia el estado a enviado
+    } else {
+      // Manejo de error (opcional)
+      console.error('Error al enviar el formulario');
+    }
   };
 
   return (
     <SectionContainer id="contacto">
-      <SectionTitle>Contacto</SectionTitle>
-      {!isSubmitted ? (
-        <ContactForm
-          action="https://formspree.io/f/xeoqjwqw" // Tu endpoint de Formspree
-          method="POST"
-          onSubmit={handleSubmit} // Esto evita el comportamiento por defecto del formulario
-        >
-          <Input type="text" name="nombre" placeholder="Tu nombre" required />
-          <Input type="email" name="correo" placeholder="Tu correo electrónico" required />
-          <TextArea name="mensaje" placeholder="Tu mensaje" required />
-          <SubmitButton type="submit">Enviar</SubmitButton>
-        </ContactForm>
-      ) : (
-        <SuccessMessage>¡Tu mensaje ha sido enviado con éxito!</SuccessMessage>
-      )}
+      <ContactoContainer>
+        <SectionTitle>Contacto</SectionTitle>
+        {!isSubmitted ? (
+          <ContactForm
+            action="https://formspree.io/f/xeoqjwqw" // Tu endpoint de Formspree
+            method="POST"
+            onSubmit={handleSubmit} // Manejo del envío
+          >
+            <Input type="text" name="nombre" placeholder="Tu nombre" required />
+            <Input type="email" name="correo" placeholder="Tu correo electrónico" required />
+            <TextArea name="mensaje" placeholder="Tu mensaje" required />
+            <SubmitButton type="submit">Enviar</SubmitButton>
+          </ContactForm>
+        ) : (
+          <SuccessMessage>¡Tu mensaje ha sido enviado con éxito!</SuccessMessage>
+        )}
+      </ContactoContainer>
     </SectionContainer>
   );
 };
