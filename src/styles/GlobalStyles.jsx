@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
     --color-accent: #FF0000;    /* Rojo brillante */
     --color-background: #2c3e50; /* Fondo oscuro */
     --color-text: #ecf0f1;       /* Texto claro */
-    --color-secondary-gradient: linear-gradient(90deg, #B22222, #FF0000);
+
   }
 
   * {
@@ -16,6 +16,9 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
   }
+  html {
+  scroll-behavior: smooth;
+}
 
   body {
     font-family: 'Arial', sans-serif;

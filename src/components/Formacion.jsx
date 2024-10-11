@@ -1,16 +1,44 @@
 import styled from 'styled-components';
-import { FaCode, FaLaptopCode, FaCertificate } from 'react-icons/fa';
+import { FaCode, FaLaptopCode} from 'react-icons/fa';
 
 const SectionContainer = styled.section`
-  padding: 60px 20px;
-  background-color: #f7f9fb; /* Fondo claro para contraste */
+ padding: 60px 20px;
+  background-color: white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 50vh;
  
 `;
 
 const SectionTitle = styled.h2`
-  font-size: 32px;
+  font-size: 42px;
   margin-bottom: 20px;
-  color: #2c3e50;
+  color: var(--color-primary);
+  position: relative; /* Necesario para posicionar el pseudo-elemento */
+
+/* Barra debajo del texto que aparece al pasar el mouse */
+&::after {
+  content: '';
+  position: absolute;
+  bottom: -5px; /* Ajusta la distancia de la barra al texto */
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-secondary); /* Rojo oscuro */
+  transition: width 0.4s ease, left 0.4s ease; /* Animación suave */
+}
+&:hover::after {
+  width: 100%; /* La barra se extiende a todo el ancho */
+  left: 0; /* La barra se anima desde el centro hacia los extremos */
+}
+&:hover {
+  color: var(--color-primary); /* Mantiene el color del texto al hacer hover */
+}
 `;
 
 const EducationList = styled.ul`
@@ -52,8 +80,8 @@ const SectionInfo = styled.section`
 const Formacion = () => {
   return (
     <SectionContainer id="formacion">
+      <SectionTitle>Formación</SectionTitle>
       <SectionInfo>
-        <SectionTitle>Formación</SectionTitle>
         <EducationList>
           <EducationItem>
             <FaCode /> <Title>Carrera Técnica en Programación</Title> - <Institution>CECYTEM CHIMALHUACAN II</Institution>, Chimalhuacán, Estado de México (2017-2020)

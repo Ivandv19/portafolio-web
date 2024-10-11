@@ -3,18 +3,40 @@ import { useState } from 'react';
 
 const SectionContainer = styled.section`
   padding: 60px 20px;
-  background-color: #fff; /* Color de fondo blanco */
+  background-color: white;
   text-align: center;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
+  flex-direction: column;
   width: 100%;
+  height: 80vh;
 `;
 
 const SectionTitle = styled.h2`
-  font-size: 32px;
+ font-size: 42px;
   margin-bottom: 20px;
-  color: #2c3e50;
+  color: var(--color-primary);
+  position: relative; /* Necesario para posicionar el pseudo-elemento */
+
+/* Barra debajo del texto que aparece al pasar el mouse */
+&::after {
+  content: '';
+  position: absolute;
+  bottom: -5px; /* Ajusta la distancia de la barra al texto */
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-secondary); /* Rojo oscuro */
+  transition: width 0.4s ease, left 0.4s ease; /* Animación suave */
+}
+&:hover::after {
+  width: 100%; /* La barra se extiende a todo el ancho */
+  left: 0; /* La barra se anima desde el centro hacia los extremos */
+}
+&:hover {
+  color: var(--color-primary); /* Mantiene el color del texto al hacer hover */
+}
 `;
 
 const ContactForm = styled.form`
@@ -65,8 +87,11 @@ const ContactoContainer = styled.section`
   width: 80%;
   align-items: center;
   justify-content: center;
+ 
 
 `
+
+
 
 const Contacto = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);

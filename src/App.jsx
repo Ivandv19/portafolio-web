@@ -9,6 +9,8 @@ import Proyectos from './components/Proyectos'
 import Skills from './components/Skills'
 import SobreMi from './components/SobreMi'
 import GlobalStyle from './styles/GlobalStyles'
+import HeroSection from './components/HeroSection'
+import Footer from './components/Footer'
 
 
 
@@ -18,12 +20,14 @@ function App() {
     <>
       <GlobalStyle />
       <Header />
+      <HeroSection />
       <SobreMi />
       <Skills />
       <Hobbies />
       <Formacion />
       <Proyectos />
       <Contacto />
+      <Footer/>
     </>
   )
 }

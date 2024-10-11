@@ -1,67 +1,47 @@
-import { MdOutlineArrowOutward } from "react-icons/md";
-import { FaGithub, FaLinkedin } from "react-icons/fa"; // Importar íconos de GitHub y LinkedIn
-import { FaDiscord, FaTwitter } from "react-icons/fa"; // Importar íconos de Discord y Twitter
 import styled from 'styled-components';
 
 const SectionContainer = styled.section`
-  padding: 100px 20px;
-  background-color: #ecf0f1; /* Color de fondo claro */
+  padding: 120px 20px; /* Aumentar el padding superior para dejar espacio */
+  background-color: #ecf0f1;
   text-align: center;
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  box-shadow: inset 0px 19px 15px -15px var(--color-secondary); /* Sombra intensa solo en la parte superior */
+  width: 100%;
+  height: auto; /* Cambiado a auto para que ajuste el tamaño según el contenido */
+  justify-content: space-around;
 `;
 
 const SectionTitle = styled.h2`
-  font-size: 52px;
+  font-size: 42px;
   margin-bottom: 20px;
   color: var(--color-primary);
   font-weight: 700;
-`;
+  position: relative; /* Necesario para posicionar el pseudo-elemento */
 
-const ProfileImage = styled.img`
-  width: 150px; /* Ajusta el tamaño según prefieras */
-  border-radius: 50%; /* Hace la imagen redonda */
-  margin-bottom: 20px;
-`;
+  
 
-const Info__SocialLinks = styled.div`
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  align-items: center;
-  justify-content: center;
-  margin: 20px 0;
+  /* Barra debajo del texto que aparece al pasar el mouse */
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -5px; /* Ajusta la distancia de la barra al texto */
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-secondary); /* Rojo oscuro */
+    transition: width 0.4s ease, left 0.4s ease; /* Animación suave */
 
-  svg {
-    color: var(--color-primary);
   }
-`;
-
-const SocialLink = styled.a`
-  color: var(--color-primary);
-  text-decoration: none;
-  font-size: 18px;
-  transition: color 0.3s;
-  gap: 3px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  height: auto;
-  cursor: pointer;
-
+  &:hover::after {
+    width: 100%; /* La barra se extiende a todo el ancho */
+    left: 0; /* La barra se anima desde el centro hacia los extremos */
+  }
   &:hover {
-    color: var(--color-secondary); /* Rojo oscuro al pasar el mouse */
-  }
-
-  &:active {
-    color: var(--color-accent);
+    color: var(--color-primary); /* Mantiene el color del texto al hacer hover */
   }
 `;
+
 
 const Info = styled.section`
     max-width: 800px;
@@ -81,6 +61,7 @@ const Info__titleAndImage = styled.section`
 const Info__SectionText = styled.section`
   color: var(--color-background);
   text-align: center;
+  line-height: 20px;
 `;
 
 const Highlight = styled.span`
@@ -90,33 +71,18 @@ const Highlight = styled.span`
 
 const SobreMi = () => {
   return (
-    <SectionContainer id="sobre-mi">
+    <SectionContainer id="sobremi">
       <Info>
         <Info__titleAndImage>
-          <SectionTitle>Hola, soy Iván Cruz y construyo páginas web</SectionTitle>
-          <ProfileImage src="https://avatars.githubusercontent.com/u/157653669?s=400&u=883ac80aa9d82dd7d1b3eaa81fa500ca2060640f&v=4" alt="Foto de perfil" />
+          <SectionTitle>Sobre Mí</SectionTitle>
+
         </Info__titleAndImage>
         <Info__SectionText>
-          Soy un <Highlight>desarrollador web frontend junior</Highlight> con una gran pasión por la <Highlight>tecnología</Highlight>. Me encanta <Highlight>crear interfaces atractivas, modernas, funcionales y optimizadas</Highlight> utilizando <Highlight>tecnologías actuales y eficaces</Highlight> para <Highlight>mejorar la experiencia del usuario</Highlight>. Estoy en <Highlight>constante aprendizaje</Highlight> para perfeccionar mis <Highlight>habilidades profesionales y personales</Highlight>.
+          Soy <Highlight>Ivan Cruz</Highlight>, tengo <Highlight>22 años</Highlight> y soy de <Highlight>México</Highlight>. Desde muy pequeño, me interesé en el mundo de la <Highlight>tecnología</Highlight>. Cursé la <Highlight>preparatoria </Highlight> en una <Highlight>carrera técnica</Highlight> que me proporcionó las <Highlight> bases de la informática</Highlight>. Sin embargo, <Highlight> la pandemia </Highlight>  me llevó a <Highlight>dejar la universidad </Highlight> , lo que me impulsó hacia un <Highlight>aprendizaje autodidacta</Highlight>.
+          <br />
+          <br />
+          Decidí inscribirme en <Highlight>cursos especializados</Highlight> en <Highlight>desarrollo frontend</Highlight> de páginas web, lo que me permitió conocer diversos <Highlight>conceptos, técnicas y tecnologías</Highlight> enfocadas en el desarrollo web. Además, tuve la oportunidad de  <Highlight> crear varios proyectos</Highlight>, lo que me brindó <Highlight> valiosa experiencia</Highlight> en el campo. Actualmente, estoy en <Highlight> busca de oportunidades</Highlight> para entrar al <Highlight>mercado laboral</Highlight>.
         </Info__SectionText>
-        <Info__SocialLinks>
-          <SocialLink href="https://github.com/tu-usuario" target="_blank">
-            <FaGithub /> {/* Ícono de GitHub */}
-            GitHub <MdOutlineArrowOutward />
-          </SocialLink>
-          <SocialLink href="https://linkedin.com/in/tu-usuario" target="_blank">
-            <FaLinkedin /> {/* Ícono de LinkedIn */}
-            LinkedIn <MdOutlineArrowOutward />
-          </SocialLink>
-          <SocialLink href="https://discord.com/invite/tu-invite" target="_blank">
-            <FaDiscord /> {/* Ícono de Discord */}
-            Discord <MdOutlineArrowOutward />
-          </SocialLink>
-          <SocialLink href="https://twitter.com/tu-usuario" target="_blank">
-            <FaTwitter /> {/* Ícono de Twitter */}
-            Twitter <MdOutlineArrowOutward />
-          </SocialLink>
-        </Info__SocialLinks>
       </Info>
     </SectionContainer>
   );
