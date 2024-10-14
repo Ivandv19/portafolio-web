@@ -137,6 +137,23 @@ const Proyectos = () => {
           </Overlay>
         </ProjectItem>
         <ProjectItem>
+          <ProjectImage src="/img/spaceappv3.png" alt="Descripción del Proyecto 2" />
+          <Overlay>
+            <ProjectTitle>Space App V3</ProjectTitle>
+            <ProjectDescription>
+            es una aplicación interactiva para gestionar y visualizar contenido diverso, incluyendo una galería de imágenes, noticias y un apartado del sistema solar. Diseñada para proporcionar una experiencia visualmente atractiva, la aplicación está dividida en cuatro secciones principales.
+            </ProjectDescription>
+            <ProjectLinks>
+              <a href="https://github.com/ivandevI9/space-app-v3" target="_blank" rel="noopener noreferrer">
+                <FaGithub /> Código
+              </a>
+              <a href="https://space-app-v3.vercel.app/" target="_blank" rel="noopener noreferrer">
+                <FaExternalLinkAlt /> Demo
+              </a>
+            </ProjectLinks>
+          </Overlay>
+        </ProjectItem>
+        <ProjectItem>
           <ProjectImage src="/img/spaceappv2.png" alt="Descripción del Proyecto 4" />
           <Overlay>
             <ProjectTitle>Space App v2</ProjectTitle>
@@ -170,7 +187,6 @@ const Proyectos = () => {
             </ProjectLinks>
           </Overlay>
         </ProjectItem>
-
         <ProjectItem>
           <ProjectImage src="/img/alura-cinema.png" alt="Descripción del Proyecto 2" />
           <Overlay>
@@ -188,7 +204,6 @@ const Proyectos = () => {
             </ProjectLinks>
           </Overlay>
         </ProjectItem>
-
         <ProjectItem>
           <ProjectImage src="/img/petshop.png" alt="Descripción del Proyecto 2" />
           <Overlay>
@@ -206,7 +221,6 @@ const Proyectos = () => {
             </ProjectLinks>
           </Overlay>
         </ProjectItem>
-
       </ProjectsGrid>
     </SectionContainer>
   );
