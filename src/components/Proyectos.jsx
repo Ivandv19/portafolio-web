@@ -190,7 +190,7 @@ const Proyectos = () => {
         </ProjectItem>
 
         <ProjectItem>
-          <ProjectImage src="/public/img/petshop.png" alt="Descripción del Proyecto 2" />
+          <ProjectImage src="/img/petshop.png" alt="Descripción del Proyecto 2" />
           <Overlay>
             <ProjectTitle>Petshop</ProjectTitle>
             <ProjectDescription>
