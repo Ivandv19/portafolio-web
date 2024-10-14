@@ -120,23 +120,22 @@ const Proyectos = () => {
       <SectionTitle>Proyectos</SectionTitle>
       <ProjectsGrid>
         <ProjectItem>
-          <ProjectImage src="/img/aluraflix.png" alt="Descripción del Proyecto 1" />
+          <ProjectImage src="/img/encriptador.png" alt="Descripción del Proyecto 3" />
           <Overlay>
-            <ProjectTitle>AluraFlix</ProjectTitle>
+            <ProjectTitle>Encriptador de Texto</ProjectTitle>
             <ProjectDescription>
-              Aluraflix es una aplicación web diseñada para gestionar y explorar una colección de videos.
+              Este proyecto es una aplicación web simple que permite encriptar y desencriptar texto.
             </ProjectDescription>
             <ProjectLinks>
-              <a href="https://github.com/ivandevI9/challenge-aluraflix" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/ivandevI9/challenge-encriptador" target="_blank" rel="noopener noreferrer">
                 <FaGithub /> Código
               </a>
-              <a href="https://alura-flix-flax.vercel.app/" target="_blank" rel="noopener noreferrer">
+              <a href="https://encriptador-nine-eta.vercel.app/" target="_blank" rel="noopener noreferrer">
                 <FaExternalLinkAlt /> Demo
               </a>
             </ProjectLinks>
           </Overlay>
         </ProjectItem>
-
         <ProjectItem>
           <ProjectImage src="/img/spaceappv2.png" alt="Descripción del Proyecto 4" />
           <Overlay>
@@ -154,25 +153,23 @@ const Proyectos = () => {
             </ProjectLinks>
           </Overlay>
         </ProjectItem>
-
         <ProjectItem>
-          <ProjectImage src="/img/encriptador.png" alt="Descripción del Proyecto 3" />
+          <ProjectImage src="/img/aluraflix.png" alt="Descripción del Proyecto 1" />
           <Overlay>
-            <ProjectTitle>Encriptador de Texto</ProjectTitle>
+            <ProjectTitle>AluraFlix</ProjectTitle>
             <ProjectDescription>
-              Este proyecto es una aplicación web simple que permite encriptar y desencriptar texto.
+              Aluraflix es una aplicación web diseñada para gestionar y explorar una colección de videos.
             </ProjectDescription>
             <ProjectLinks>
-              <a href="https://github.com/ivandevI9/challenge-encriptador" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/ivandevI9/challenge-aluraflix" target="_blank" rel="noopener noreferrer">
                 <FaGithub /> Código
               </a>
-              <a href="https://encriptador-nine-eta.vercel.app/" target="_blank" rel="noopener noreferrer">
+              <a href="https://alura-flix-flax.vercel.app/" target="_blank" rel="noopener noreferrer">
                 <FaExternalLinkAlt /> Demo
               </a>
             </ProjectLinks>
           </Overlay>
         </ProjectItem>
-
         <ProjectItem>
           <ProjectImage src="/img/alura-cinema.png" alt="Descripción del Proyecto 2" />
           <Overlay>
@@ -190,11 +187,6 @@ const Proyectos = () => {
             </ProjectLinks>
           </Overlay>
         </ProjectItem>
-
-
-
-
-
       </ProjectsGrid>
     </SectionContainer>
   );

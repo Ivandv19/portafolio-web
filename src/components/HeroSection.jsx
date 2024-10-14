@@ -116,7 +116,7 @@ const HeroSection = () => {
     <SectionContainer id="miportafolio">
       <Info>
         <Info__titleAndImage>
-          <SectionTitle>Hola, soy Iván Cruz y construyo páginas web</SectionTitle>
+          <SectionTitle>Hola, soy Ivan Cruz y construyo páginas web</SectionTitle>
           <ProfileImage src="https://avatars.githubusercontent.com/u/157653669?s=400&u=883ac80aa9d82dd7d1b3eaa81fa500ca2060640f&v=4" alt="Foto de perfil" />
         </Info__titleAndImage>
         <Info__SectionText>
