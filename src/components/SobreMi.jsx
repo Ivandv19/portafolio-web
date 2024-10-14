@@ -75,7 +75,6 @@ const SobreMi = () => {
       <Info>
         <Info__titleAndImage>
           <SectionTitle>Sobre Mí</SectionTitle>
-
         </Info__titleAndImage>
         <Info__SectionText>
           Soy <Highlight>Ivan Cruz</Highlight>, tengo <Highlight>22 años</Highlight> y soy de <Highlight>Chimalhuacán, Edomex, México</Highlight>. Desde muy pequeño, me interesé en el mundo de la <Highlight>tecnología</Highlight>. Cursé la <Highlight>preparatoria </Highlight> en una <Highlight>carrera técnica</Highlight> que me proporcionó las <Highlight> bases de la informática</Highlight>. Sin embargo, <Highlight> la pandemia </Highlight>  me llevó a <Highlight>dejar la universidad </Highlight> , lo que me impulsó hacia un <Highlight>aprendizaje autodidacta</Highlight>.
