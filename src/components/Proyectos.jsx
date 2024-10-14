@@ -170,6 +170,7 @@ const Proyectos = () => {
             </ProjectLinks>
           </Overlay>
         </ProjectItem>
+
         <ProjectItem>
           <ProjectImage src="/img/alura-cinema.png" alt="Descripción del Proyecto 2" />
           <Overlay>
@@ -187,6 +188,25 @@ const Proyectos = () => {
             </ProjectLinks>
           </Overlay>
         </ProjectItem>
+
+        <ProjectItem>
+          <ProjectImage src="/public/img/petshop.png" alt="Descripción del Proyecto 2" />
+          <Overlay>
+            <ProjectTitle>Petshop</ProjectTitle>
+            <ProjectDescription>
+            Este es un proyecto de gestión de contenido para un blog sobre mascotas. Permite la visualización de posts categorizados y la navegación a través de diferentes categorías y subcategorías relacionadas con el bienestar y el comportamiento de las mascotas.
+            </ProjectDescription>
+            <ProjectLinks>
+              <a href="https://github.com/ivandevI9/petshop" target="_blank" rel="noopener noreferrer">
+                <FaGithub /> Código
+              </a>
+              <a href="https://petshop-kappa-ten.vercel.app/" target="_blank" rel="noopener noreferrer">
+                <FaExternalLinkAlt /> Demo
+              </a>
+            </ProjectLinks>
+          </Overlay>
+        </ProjectItem>
+
       </ProjectsGrid>
     </SectionContainer>
   );
