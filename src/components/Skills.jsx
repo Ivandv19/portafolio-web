@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { FaHtml5, FaCss3Alt, FaJsSquare, FaGitAlt, FaGithub, FaNpm, FaNodeJs, FaReact } from 'react-icons/fa';
-import { DiDatabase } from 'react-icons/di';
 import { SiStyledcomponents, SiVite } from 'react-icons/si';
 
 const SectionContainer = styled.section`
