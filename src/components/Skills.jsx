@@ -7,17 +7,16 @@ const SectionContainer = styled.section`
   padding: 60px 20px;
   background-color: #fff;
   text-align: center;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-direction: column;
   width: 100%;
-  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 const SectionTitle = styled.h2`
   font-size: 42px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   color: var(--color-primary);
   position: relative;
 
@@ -31,46 +30,50 @@ const SectionTitle = styled.h2`
     background-color: var(--color-secondary);
     transition: width 0.4s ease, left 0.4s ease;
   }
+  
   &:hover::after {
     width: 100%;
     left: 0;
   }
-  &:hover {
-    color: var(--color-primary);
-  }
 `;
 
-const CarouselWrapper = styled.div`
-  overflow: hidden;
-  max-width: 80%;
+const SkillsGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  align-items: center;
+  padding: 20px;
+  width: 80%;
+  justify-content: center;
 `;
 
-const CarouselContainer = styled.div`
-  display: flex;
-  animation: scrollLeft 10s linear infinite; /* Aumenta el tiempo de la animación a 20s */
-  
-  @keyframes scrollLeft {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-100%); /* Mueve el 50% del ancho total */
-    }
-  }
-`;
-
-const SkillItem = styled.div`
-  font-size: 18px;
-  color: #34495e;
-  margin: 10px 20px;
+const SkillCard = styled.div`
+width: 100%;
+height: auto;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 150px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 
   svg {
     font-size: 40px;
     margin-bottom: 10px;
+    color: var(--color-primary);
+  }
+
+  p {
+    font-size: 16px;
+    font-weight: bold;
+    color: #34495e;
   }
 `;
 
@@ -83,32 +86,25 @@ const skills = [
   { name: 'npm', icon: <FaNpm /> },
   { name: 'pnpm', icon: <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 512 512"><path fill="currentColor" d="M502 10v140H362V10zm-176 0v140H186V10zm-176 0v140H10V10zm352 176v140H362V186zM512 0H352v160h160zM336 0H176v160h160zM160 0H0v160h160zm352 176H352v160h160zM336 336H176V176h160zm0 16H176v160h160zm176 0H352v160h160zm-352 0H0v160h160z" /></svg> },
   { name: 'Node.js', icon: <FaNodeJs /> },
+  { name: 'RESTful API', icon:<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32"><path fill="currentColor" d="M16 0C7.177 0 0 7.177 0 16s7.177 16 16 16s16-7.177 16-16S24.823 0 16 0m0 1.527c7.995 0 14.473 6.479 14.473 14.473S23.994 30.473 16 30.473S1.527 23.994 1.527 16S8.006 1.527 16 1.527m-4.839 6.296c-.188-.005-.375 0-.568.005c-1.307.079-2.093.693-2.312 1.964c-.151.891-.125 1.796-.188 2.692a9 9 0 0 1-.156 1.38c-.177.813-.525 1.068-1.353 1.109q-.167.018-.324.057v1.948c1.5.073 1.704.605 1.823 2.172c.048.573-.015 1.147.021 1.719q.042.816.208 1.6c.344 1.432 1.745 1.911 3.433 1.624V22.38c-.272 0-.511.005-.74 0c-.579-.016-.792-.161-.844-.713c-.079-.713-.057-1.437-.099-2.156c-.089-1.339-.235-2.651-1.541-3.5c.672-.495 1.161-1.084 1.312-1.865c.109-.547.177-1.099.219-1.651s-.025-1.12.021-1.667c.077-.885.135-1.249 1.197-1.213c.161 0 .317-.021.495-.036V7.834c-.213 0-.411-.005-.604-.011m10.126.016a5.4 5.4 0 0 0-1.089.079v1.697c.329 0 .584 0 .833.005c.439.005.772.177.813.661c.041.443.041.891.083 1.339c.089.896.136 1.796.292 2.677c.136.724.636 1.265 1.255 1.713c-1.088.729-1.411 1.776-1.463 2.953c-.032.801-.052 1.615-.093 2.427c-.037.74-.297.979-1.043.995c-.208.011-.411.027-.64.041v1.74c.432 0 .833.027 1.235 0c1.239-.073 1.995-.677 2.239-1.885a15 15 0 0 0 .183-2.005c.041-.615.036-1.235.099-1.844c.093-.953.532-1.349 1.484-1.411q.133-.018.267-.057v-1.953c-.161-.021-.271-.037-.391-.041c-.713-.032-1.068-.272-1.251-.948a6.6 6.6 0 0 1-.197-1.324c-.052-.823-.047-1.656-.099-2.479c-.109-1.588-1.063-2.339-2.516-2.38zm-9.188 7.036c-1.432 0-1.536 2.109-.115 2.245h.079a1.103 1.103 0 0 0 1.167-1.037v-.061a1.13 1.13 0 0 0-1.104-1.147zm3.88 0a1.083 1.083 0 0 0-1.115 1.043c0 .036 0 .067.005.104c0 .672.459 1.099 1.147 1.099c.677 0 1.104-.443 1.104-1.136c-.005-.672-.459-1.115-1.141-1.109zm3.948 0a1.15 1.15 0 0 0-1.167 1.115c0 .625.505 1.131 1.136 1.131h.011c.567.099 1.135-.448 1.172-1.104c.031-.609-.521-1.141-1.152-1.141z"/></svg> },
+  { name: 'JSON', icon: <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" strokeWidth="2" d="M14 19h2a2 2 0 0 0 2-2v-2.438a2 2 0 0 1 1.515-1.94l1.515-.38c.252-.063.252-.421 0-.485l-1.515-.378A2 2 0 0 1 18 9.439V5h-4m-4 0H8a2 2 0 0 0-2 2v2.438a2 2 0 0 1-1.515 1.94l-1.515.38c-.252.063-.252.421 0 .485l1.515.378A2 2 0 0 1 6 14.561V19h4"/></svg> },
   { name: 'React', icon: <FaReact /> },
-  { name: 'Vercel', icon: <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M17.992 17.023L11.981 6.977L6.008 17.023z" /></svg> },
-  { name: 'Oracle', icon: <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32"><path fill="currentColor" d="M21.88 5.88H10.125C4.536 5.88.005 10.407 0 15.995c-.005 5.589 4.527 10.12 10.115 10.125H21.88C27.469 26.12 32 21.588 32 16S27.469 5.88 21.88 5.88m-.255 16.672H10.38c-8.563-.172-8.563-12.932 0-13.104h11.245c8.735 0 8.735 13.104 0 13.104" /></svg> },
-  { name: 'SQL', icon: <DiDatabase /> },
   { name: 'Styled Components', icon: <SiStyledcomponents /> },
   { name: 'Vite', icon: <SiVite /> },
-  { name: 'ChatGPT', icon: <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48"><path fill="none" stroke="currentColor" strokeLinejoin="round" d="M18.38 27.94v-14.4l11.19-6.46c6.2-3.58 17.3 5.25 12.64 13.33" /><path fill="none" stroke="currentColor" strokeLinejoin="round" d="m18.38 20.94l12.47-7.2l11.19 6.46c6.2 3.58 4.1 17.61-5.23 17.61" /><path fill="none" stroke="currentColor" strokeLinejoin="round" d="m24.44 17.44l12.47 7.2v12.93c0 7.16-13.2 12.36-17.86 4.28" /><path fill="none" stroke="currentColor" strokeLinejoin="round" d="M30.5 21.2v14.14L19.31 41.8c-6.2 3.58-17.3-5.25-12.64-13.33" /><path fill="none" stroke="currentColor" strokeLinejoin="round" d="m30.5 27.94l-12.47 7.2l-11.19-6.46c-6.21-3.59-4.11-17.61 5.22-17.61" /><path fill="none" stroke="currentColor" strokeLinejoin="round" d="m24.44 31.44l-12.47-7.2V11.31c0-7.16 13.2-12.36 17.86-4.28" /></svg> },
 ];
 
 const Skills = () => {
   return (
     <SectionContainer id="skills">
       <SectionTitle>Skills</SectionTitle>
-      <CarouselWrapper>
-        <CarouselContainer>
-          {/* Duplicar el contenido para crear un efecto de carrusel continuo */}
-          <div style={{ display: 'flex' }}>
-            {[...skills, ...skills].map((skill, index) => (
-              <SkillItem key={index}>
-                {skill.icon}
-                {skill.name}
-              </SkillItem>
-            ))}
-          </div>
-        </CarouselContainer>
-      </CarouselWrapper>
+      <SkillsGrid>
+        {skills.map((skill, index) => (
+          <SkillCard key={index}>
+            {skill.icon}
+            <p>{skill.name}</p>
+          </SkillCard>
+        ))}
+      </SkillsGrid>
     </SectionContainer>
   );
 };
