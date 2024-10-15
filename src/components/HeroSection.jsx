@@ -131,13 +131,17 @@ const HeroSection = () => {
             <FaLinkedin /> {/* Ícono de LinkedIn */}
             LinkedIn <MdOutlineArrowOutward />
           </SocialLink>
+          <SocialLink href="https://app.aluracursos.com/user/ivanmx19" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" width="0.84em" height="1em" viewBox="0 0 563 671"><path fill="currentColor" d="M491 222v-94h72v526h-72v-74c-50 55-124 91-206 91C133 671 0 551 0 401s133-270 285-270c82 0 156 36 206 91m0 185v-12c-4-110-95-198-207-198c-115 0-215 91-215 204s100 204 215 204c112 0 203-88 207-198" /></svg>
+            Alura <MdOutlineArrowOutward />
+          </SocialLink>
           <SocialLink href="https://discord.com/users/ivandev19" target="_blank">
             <FaDiscord /> {/* Ícono de Discord */}
             Discord <MdOutlineArrowOutward />
           </SocialLink>
           <SocialLink href="https://x.com/IvandevI9" target="_blank">
-          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 256 256"><g fill="currentColor"><path d="M208 216h-48L48 40h48Z" opacity=".2"/><path d="m214.75 211.71l-62.6-98.38l61.77-67.95a8 8 0 0 0-11.84-10.76l-58.84 64.72l-40.49-63.63A8 8 0 0 0 96 32H48a8 8 0 0 0-6.75 12.3l62.6 98.37l-61.77 68a8 8 0 1 0 11.84 10.76l58.84-64.72l40.49 63.63A8 8 0 0 0 160 224h48a8 8 0 0 0 6.75-12.29M164.39 208L62.57 48h29l101.86 160Z"/></g></svg>
-             <MdOutlineArrowOutward />
+            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 256 256"><g fill="currentColor"><path d="M208 216h-48L48 40h48Z" opacity=".2" /><path d="m214.75 211.71l-62.6-98.38l61.77-67.95a8 8 0 0 0-11.84-10.76l-58.84 64.72l-40.49-63.63A8 8 0 0 0 96 32H48a8 8 0 0 0-6.75 12.3l62.6 98.37l-61.77 68a8 8 0 1 0 11.84 10.76l58.84-64.72l40.49 63.63A8 8 0 0 0 160 224h48a8 8 0 0 0 6.75-12.29M164.39 208L62.57 48h29l101.86 160Z" /></g></svg>
+            <MdOutlineArrowOutward />
           </SocialLink>
         </Info__SocialLinks>
       </Info>
@@ -146,3 +150,4 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+
