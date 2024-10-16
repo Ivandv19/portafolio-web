@@ -46,6 +46,11 @@ const HobbiesGrid = styled.div`
   padding: 20px;
   width: 80%;
   justify-content: center;
+
+  @media (max-width: 480px) { // Cambia a móviles
+    width: 100%;
+  padding: 0;
+  }
 `;
 
 const HobbiesCard = styled.div`
@@ -83,7 +88,7 @@ const hobbies = [
   { name: 'Escuchar música', icon: <FaMusic /> },
   { name: 'Ver series y películas', icon: <FaTv /> },
   { name: 'Aprender nuevas tecnologías', icon: <FaLaptopCode /> },
-  { name: 'Tocar piano', icon: <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M5.616 20q-.691 0-1.153-.462T4 18.384V5.616q0-.691.463-1.153T5.616 4h12.769q.69 0 1.153.463T20 5.616v12.769q0 .69-.462 1.153T18.384 20zm0-1h3.038v-4.808H8.25q-.367 0-.607-.239q-.24-.24-.24-.607V5H5.617q-.27 0-.443.173T5 5.616v12.769q0 .269.173.442t.443.173m9.73 0h3.039q.269 0 .442-.173t.173-.443V5.616q0-.27-.173-.443T18.385 5h-1.789v8.346q0 .368-.24.607q-.239.24-.606.24h-.404zM9.54 19h4.923v-4.808h-.404q-.367 0-.607-.239q-.24-.24-.24-.607V5H10.79v8.346q0 .368-.24.607q-.24.24-.607.24H9.54z"/></svg> }, // Añadido 'Tocar piano'
+  { name: 'Tocar piano', icon: <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M5.616 20q-.691 0-1.153-.462T4 18.384V5.616q0-.691.463-1.153T5.616 4h12.769q.69 0 1.153.463T20 5.616v12.769q0 .69-.462 1.153T18.384 20zm0-1h3.038v-4.808H8.25q-.367 0-.607-.239q-.24-.24-.24-.607V5H5.617q-.27 0-.443.173T5 5.616v12.769q0 .269.173.442t.443.173m9.73 0h3.039q.269 0 .442-.173t.173-.443V5.616q0-.27-.173-.443T18.385 5h-1.789v8.346q0 .368-.24.607q-.239.24-.606.24h-.404zM9.54 19h4.923v-4.808h-.404q-.367 0-.607-.239q-.24-.24-.24-.607V5H10.79v8.346q0 .368-.24.607q-.24.24-.607.24H9.54z" /></svg> }, // Añadido 'Tocar piano'
   { name: 'Visitar museos', icon: <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" d="M19.5 10.5V19m-10-8.5V19m-5-8.5V19m10-8.5V19M2 21h20M0 23.5h24m-.5-15.75v.75H.5v-.75C5 6 9.186 3.577 11.438.875L11.75.5h.5l.312.375C14.814 3.577 19 6 23.5 7.75Z" /></svg> }, // Añadido 'Visitar museos'
 ];
 

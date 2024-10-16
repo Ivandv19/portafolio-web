@@ -12,6 +12,11 @@ const SectionContainer = styled.section`
   justify-content: space-evenly;
   width: 100%;
   height: 50vh;
+
+  @media (max-width: 480px) { // Cambia a móviles
+    width: 100%;
+  height: auto;
+  }
  
 `;
 
@@ -58,6 +63,13 @@ const EducationItem = styled.li`
   svg {
     margin-right: 10px;
     color: #34495e;
+  }
+
+  @media (max-width: 480px) { // Cambia a móviles
+    width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
   }
 `;
 

@@ -45,6 +45,11 @@ const SkillsGrid = styled.div`
   padding: 20px;
   width: 80%;
   justify-content: center;
+
+  @media (max-width: 480px) { // Cambia a móviles
+    width: 100%;
+  padding: 0;
+  }
 `;
 
 const SkillCard = styled.div`

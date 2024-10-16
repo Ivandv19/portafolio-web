@@ -12,7 +12,12 @@ const SectionContainer = styled.section`
   flex-direction: column;
   justify-content: space-evenly;
   width: 100%;
- 
+  @media (max-width: 480px) { // Cambia a móviles
+    width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  }
  
 `;
 
@@ -50,10 +55,17 @@ const ProjectsGrid = styled.div`
   width: 100%;
   max-width: 80%; /* Ajusta el ancho máximo de la cuadrícula */
   margin: 0 auto; /* Centra la cuadrícula */
+
+  @media (max-width: 480px) { // Cambia a móviles
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+
+  }
 `;
 
 const ProjectItem = styled.div`
-
   position: relative;
   overflow: hidden;
   border-radius: 8px;
@@ -64,6 +76,11 @@ const ProjectItem = styled.div`
   &:hover {
     transform: scale(1.05);
   }
+  @media (max-width: 480px) { // Cambia a móviles
+   
+    width: 100%;
+    height: auto;
+  }
 `;
 
 const ProjectImage = styled.img`
@@ -73,6 +90,11 @@ const ProjectImage = styled.img`
 
   ${ProjectItem}:hover & {
     filter: blur(2px);
+  }
+
+  @media (max-width: 480px) { // Cambia a móviles
+    width: 100%;
+    height: auto;
   }
 `;
 
@@ -93,6 +115,11 @@ const Overlay = styled.div`
 
   ${ProjectItem}:hover & {
     opacity: 1;
+  }
+
+  @media (max-width: 480px) { // Cambia a móviles
+    width: 100%;
+    height: auto;
   }
 `;
 

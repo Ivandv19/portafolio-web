@@ -11,6 +11,12 @@ const SectionContainer = styled.section`
   flex-direction: column;
   width: 100%;
   height: 80vh;
+
+  @media (max-width: 480px) { // Cambia a móviles
+    width: 100%;
+    height: 100vh;
+    justify-content: flex-start;
+  }
 `;
 
 const SectionTitle = styled.h2`
@@ -44,6 +50,10 @@ const ContactForm = styled.form`
   flex-direction: column;
   align-items: center;
   width: 60%;
+  @media (max-width: 480px) { // Cambia a móviles
+    width: 100%;
+    height: auto;
+  }
 `;
 
 const Input = styled.input`
@@ -52,6 +62,11 @@ const Input = styled.input`
   width: 100%;
   border: 1px solid #bdc3c7;
   border-radius: 4px;
+
+  @media (max-width: 480px) { // Cambia a móviles
+    width: 100%;
+    height: auto;
+  }
 `;
 
 const TextArea = styled.textarea`
@@ -75,6 +90,11 @@ const SubmitButton = styled.button`
   &:hover {
     background-color: #1abc9c; /* Color al pasar el mouse */
   }
+
+  @media (max-width: 480px) { // Cambia a móviles
+    width: 100%;
+    height: auto;
+  }
 `;
 
 const SuccessMessage = styled.p`
@@ -87,6 +107,11 @@ const ContactoContainer = styled.section`
   width: 80%;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 480px) { // Cambia a móviles
+    width: 100%;
+    height: auto;
+  }
  
 
 `

@@ -1,55 +1,114 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { FaHtml5, FaCss3Alt, FaJsSquare, FaGitAlt, FaGithub, FaNpm, FaNodeJs, FaReact, FaFutbol, FaGamepad, FaMusic, FaPlane, FaTv, FaBook } from 'react-icons/fa'; // Importa los íconos necesarios
+import { FaUser, FaToolbox, FaGamepad, FaBookOpen, FaFolderOpen, FaEnvelope } from 'react-icons/fa'; // Importa los íconos necesarios
 
-// Estilos para el Header
 const HeaderContainer = styled.header`
   width: 100%;
   height: auto;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   align-items: center;
-  padding: 10px 20px;
+  padding: 10px 20px; // Puedes reducir esto si lo deseas
   background-color: var(--color-primary);
   color: var(--color-text);
   border-bottom: 3px solid var(--color-accent);
   box-shadow: 0px -3px 15px 1px var(--color-accent);
-  position: fixed;
-  top: 0;
+  position: fixed; // Mantiene el header en una posición fija
+  top: 0; // Por defecto, el header está en la parte superior
   z-index: 1;
-  scroll-behavior: smooth; /* Desplazamiento suave */
+  scroll-behavior: smooth;
+
+  @media (max-width: 768px) { /* Pantallas tablet */
+    display: grid; /* Asegúrate de que el contenedor tenga display: grid */
+    grid-template-columns: 1fr;
+   grid-template-rows: 1fr; /* Una fila */
+   height: auto;
+   overflow: hidden; /* Oculta el desbordamiento */
+  }
+
+  @media (max-width: 480px) { // Cambia a móviles
+    grid-template-columns: 1fr; /* Una sola columna */
+    padding: 5px 10px; /* Ajusta el padding */
+    bottom: 0; // Asegúrate de que esto esté aquí
+    top: auto; // Establece 'top' en 'auto' para quitarlo de la parte superior
+    border-top: 3px solid var(--color-accent); // Cambia el border a la parte superior
+    box-shadow: 0px 3px 15px 1px var(--color-accent); // Ajusta la sombra si es necesario
+    border-bottom: 0;
+
+  }
 `;
 
 const Logo = styled.img`
-  width: ${({ isShrunk }) => (isShrunk ? '50px' : '80px')}; // Cambiar el tamaño del logo
+  width: ${({ $isShrunk }) => ($isShrunk ? '50px' : '80px')};
   height: auto;
-  opacity: ${({ isShrunk }) => (isShrunk ? '0' : '1')}; // Hacer que se vuelva invisible
-  transition: width 0.5s ease, opacity 0.5s ease; // Animación más suave
+  opacity: ${({ $isShrunk }) => ($isShrunk ? '0' : '1')};
+  transition: width 0.5s ease, opacity 0.5s ease;
+
+  @media (max-width: 768px) { // Cambia a tablet
+    display: ${({ $isShrunk }) => ($isShrunk ? 'none' : 'block')};
+    
+  }
+
+  @media (max-width: 480px) { // Cambia a móviles
+   
+  }
 `;
 
 const ProfileImage = styled.img`
-  width: 50px; // Tamaño de la foto de perfil
-  height: auto;
-  opacity: ${({ isShrunk }) => (isShrunk ? '1' : '0')}; // Hacer que se vuelva visible solo cuando isShrunk sea true
-  transition: opacity 0.5s ease; // Animación más suave al aparecer
-  border-radius: 50%; /* Hace la imagen redonda */
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Transición */
+  
+  &.fade-in {
+    opacity: 1;
+    transform: scale(1);
+  }
 
+  &.fade-out {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  @media (max-width: 768px) {
+    width: 40px;
+    height: 40px;
+  }
+
+  @media (max-width: 480px) {
+    width: 30px;
+    height: 30px;
+  }
 `;
 
 const Marca = styled.h1`
   display: flex;
   align-items: center;
   font-size: 16px;
-  gap: 10px;
+  gap: 5px; // Reduce el espacio entre el logo y el texto
   justify-content: center;
   width: 100%;
+ 
+  @media (max-width: 768px) { // Cambia a tablet
+    display: flex;
+    flex-direction: row;
+
+  }
 `;
 
 const Nav = styled.nav`
-  display: flex;
-  justify-content: center;
-  gap: 20px;
+  display: flex; 
+  justify-content: center; 
+  gap: 10px; // Reduce el espacio entre los enlaces
   width: 100%;
+  height: auto;
+
+
+  @media (max-width: 768px) { // Cambia a tablet
+    width: 100%;
+    justify-content: space-evenly;
+ 
+  }
 `;
 
 const NavLink = styled.a`
@@ -68,28 +127,57 @@ const NavLink = styled.a`
     left: 50%;
     bottom: -5px;
     transform: translateX(-50%);
-    transition: width 0.4s ease-in-out, box-shadow 0.4s ease-in-out; // Transiciones más suaves
+    transition: width 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
     box-shadow: 0px 0px 15px 0.5px var(--color-accent);
   }
 
   &:hover::after {
     width: 100%;
   }
+
+  @media (max-width: 768px) { // Cambia a tablet
+    display: none; // Esconde los enlaces de texto
+  }
 `;
 
-const SectionContacto = styled.section`
-  /* Estilos para la sección de contacto si es necesario */
+const IconLink = styled.a`
+  color: white;
+  font-size: 24px; // Tamaño del icono
+  text-decoration: none;
+  width: 100%;
+
+  @media (min-width: 769px) { // En pantallas más grandes
+    display: none; // Esconde los iconos en pantallas más grandes
+    width: 100%;
+
+  }
 `;
+
+const NavCelulares = styled.section`
+  display: flex;
+  justify-content: space-around;
+`
+
+const SectionContacto = styled.section``;
 
 const Header = () => {
   const [activeLink, setActiveLink] = useState('#miportafolio');
-  const [isShrunk, setIsShrunk] = useState(false); // Nuevo estado para controlar el tamaño del logo
-  const [showProfileImage, setShowProfileImage] = useState(false); // Nuevo estado para controlar la visibilidad de la imagen de perfil
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [Shrunk, setShrunk] = useState(false);
+
+  // Maneja el cambio de tamaño de la ventana
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const handleScroll = () => {
     const scrollPos = window.scrollY;
-    setIsShrunk(scrollPos > 50); // Cambia el tamaño si el scroll es mayor a 50px
-    setShowProfileImage(scrollPos > 100); // Mostrar imagen de perfil cuando se haga scroll más allá de 100px
+    setShrunk(scrollPos > 50);
 
     const sections = document.querySelectorAll('section');
     let lastActiveLink = activeLink;
@@ -120,40 +208,70 @@ const Header = () => {
   return (
     <HeaderContainer>
       <Marca>
-        <Logo src="/img/logo.gif" alt="Logo de Portafolio" isShrunk={isShrunk} />
-        {showProfileImage && (
-          <ProfileImage
-            src="https://avatars.githubusercontent.com/u/157653669?s=400&u=883ac80aa9d82dd7d1b3eaa81fa500ca2060640f&v=4"
-            alt="Foto de Perfil"
-            isShrunk={isShrunk}
-          />
+        <Logo src="/img/logo.gif" alt="Logo de Portafolio" $isShrunk={Shrunk} />
+
+        {/* Renderiza el NavLink solo si no está en modo móvil */}
+        {!isMobile && (
+          <NavLink href="#miportafolio" $isActive={activeLink === '#miportafolio'}>
+            Mi Portafolio
+          </NavLink>
         )}
-        <NavLink href="#miportafolio" $isActive={activeLink === '#miportafolio'}>
-          Mi Portafolio
-        </NavLink>
       </Marca>
-      <Nav>
-        <NavLink href="#sobremi" $isActive={activeLink === '#sobremi'}>
-          Sobre mí
-        </NavLink>
-        <NavLink href="#skills" $isActive={activeLink === '#skills'}>
-          Skills
-        </NavLink>
-        <NavLink href="#hobbies" $isActive={activeLink === '#hobbies'}>
-          Hobbies
-        </NavLink>
-        <NavLink href="#formacion" $isActive={activeLink === '#formacion'}>
-          Formación
-        </NavLink>
-        <NavLink href="#proyectos" $isActive={activeLink === '#proyectos'}>
-          Proyectos
-        </NavLink>
-      </Nav>
-      <SectionContacto>
-        <NavLink href="#contacto" $isActive={activeLink === '#contacto'}>
-          Contacto
-        </NavLink>
-      </SectionContacto>
+
+      {/* Renderiza los enlaces de texto solo si no está en modo móvil */}
+      {!isMobile && (
+        <Nav>
+          <NavLink href="#sobremi" $isActive={activeLink === '#sobremi'}>
+            Sobre mí
+          </NavLink>
+          <NavLink href="#skills" $isActive={activeLink === '#skills'}>
+            Skills
+          </NavLink>
+          <NavLink href="#hobbies" $isActive={activeLink === '#hobbies'}>
+            Hobbies
+          </NavLink>
+          <NavLink href="#formacion" $isActive={activeLink === '#formacion'}>
+            Formación
+          </NavLink>
+          <NavLink href="#proyectos" $isActive={activeLink === '#proyectos'}>
+            Proyectos
+          </NavLink>
+        </Nav>
+      )}
+      {/* También oculta el enlace de contacto en modo móvil */}
+      {!isMobile && (
+        <SectionContacto>
+          <NavLink href="#contacto" $isActive={activeLink === '#contacto'}>
+            Contacto
+          </NavLink>
+        </SectionContacto>
+      )}
+      {/* Renderiza los iconos en modo móvil */}
+      {isMobile && (
+        <NavCelulares>
+          <IconLink href="#miportafolio" title="Mi Portafolio">
+            <FaUser />
+          </IconLink>
+          <IconLink href="#sobremi" title="Sobre mí">
+            <FaUser />
+          </IconLink>
+          <IconLink href="#skills" title="Skills">
+            <FaToolbox />
+          </IconLink>
+          <IconLink href="#hobbies" title="Hobbies">
+            <FaGamepad />
+          </IconLink>
+          <IconLink href="#formacion" title="Formación">
+            <FaBookOpen />
+          </IconLink>
+          <IconLink href="#proyectos" title="Proyectos">
+            <FaFolderOpen />
+          </IconLink>
+          <IconLink href="#contacto" title="Contacto">
+            <FaEnvelope />
+          </IconLink>
+        </NavCelulares>
+      )}
     </HeaderContainer>
   );
 };

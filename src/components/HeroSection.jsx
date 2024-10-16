@@ -15,6 +15,12 @@ const SectionContainer = styled.section`
   justify-content: center;
 
 
+  @media (max-width: 480px) { // Cambia a móviles
+    justify-content: flex-start;
+    padding: 50px 10px;
+  }
+
+
 
 `;
 
@@ -23,6 +29,11 @@ const SectionTitle = styled.h2`
   margin-bottom: 20px;
   color: var(--color-text);
   font-weight: 700;
+
+  @media (max-width: 480px) { // Cambia a móviles
+    font-size: 40px;
+  }
+
 `;
 
 const ProfileImage = styled.img`
@@ -41,6 +52,12 @@ const Info__SocialLinks = styled.div`
   svg {
     color: white; /* Cambiar el color de los íconos a blanco */
     font-size: 20px; /* Ajustar el tamaño si es necesario */
+  }
+
+  @media (max-width: 480px) { // Cambia a móviles
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
   }
 `;
 
@@ -90,6 +107,11 @@ const Info = styled.section`
     display: flex;
     flex-direction: column;
     gap: 20px;
+
+    @media (max-width: 480px) { // Cambia a móviles
+    width: 100%;
+  }
+    
 `;
 
 const Info__titleAndImage = styled.section`
@@ -97,6 +119,11 @@ const Info__titleAndImage = styled.section`
     flex-direction: row;
     justify-content: center;
     align-items: center;
+
+    @media (max-width: 480px) { // Cambia a móviles
+ 
+   flex-direction: column-reverse;
+  }
 `;
 
 const Info__SectionText = styled.section`
