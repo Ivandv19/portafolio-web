@@ -28,18 +28,21 @@ const HeaderContainer = styled.header`
 
   @media (max-width: 480px) { // Cambia a móviles
     grid-template-columns: 1fr; /* Una sola columna */
-    padding: 5px 10px; /* Ajusta el padding */
+    padding: 0; /* Ajusta el padding */
     bottom: 0; // Asegúrate de que esto esté aquí
     top: auto; // Establece 'top' en 'auto' para quitarlo de la parte superior
     border-top: 3px solid var(--color-accent); // Cambia el border a la parte superior
     box-shadow: 0px 3px 15px 1px var(--color-accent); // Ajusta la sombra si es necesario
     border-bottom: 0;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 
   }
 `;
 
 const Logo = styled.img`
-  width: ${({ $isShrunk }) => ($isShrunk ? '50px' : '80px')};
+  width: ${({ $isShrunk }) => ($isShrunk ? '50px' : '60px')};
   height: auto;
   opacity: ${({ $isShrunk }) => ($isShrunk ? '0' : '1')};
   transition: width 0.5s ease, opacity 0.5s ease;
@@ -56,7 +59,7 @@ const Logo = styled.img`
 
 const ProfileImage = styled.img`
   width: 50px;
-  height: 50px;
+  height: auto;
   border-radius: 50%;
   transition: opacity 0.5s ease, transform 0.5s ease; /* Transición */
   
@@ -71,13 +74,11 @@ const ProfileImage = styled.img`
   }
 
   @media (max-width: 768px) {
-    width: 40px;
-    height: 40px;
+    display: none;
   }
 
   @media (max-width: 480px) {
-    width: 30px;
-    height: 30px;
+   display: none;
   }
 `;
 
@@ -140,29 +141,52 @@ const NavLink = styled.a`
   }
 `;
 
+
+
 const IconLink = styled.a`
   color: white;
-  font-size: 24px; // Tamaño del icono
   text-decoration: none;
-  width: 100%;
+  width: 20px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  @media (min-width: 769px) { // En pantallas más grandes
-    display: none; // Esconde los iconos en pantallas más grandes
+   svg {
     width: 100%;
-
-  }
+    height: auto;
+   }
 `;
 
 const NavCelulares = styled.section`
   display: flex;
   justify-content: space-around;
+  padding: 5px;
+`
+
+const ProfileImageMobile = styled.img`
+   width: 50px;
+  height: auto;
+  border-radius: 50%;
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Transición */
+`
+
+const ImgPerfilContainerMobile = styled.a`
+   display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 30px;
+    height: auto;
+  }
 `
 
 const SectionContacto = styled.section``;
 
 const Header = () => {
   const [activeLink, setActiveLink] = useState('#miportafolio');
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 480);
   const [Shrunk, setShrunk] = useState(false);
 
   // Maneja el cambio de tamaño de la ventana
@@ -208,8 +232,14 @@ const Header = () => {
   return (
     <HeaderContainer>
       <Marca>
-        <Logo src="/img/logo.gif" alt="Logo de Portafolio" $isShrunk={Shrunk} />
-
+        {Shrunk ? (
+          <ProfileImage
+            src="https://avatars.githubusercontent.com/u/157653669?v=4"
+            alt="Profile Image"
+          />
+        ) : (
+          <Logo src="/img/logo.gif" alt="Logo de Portafolio" />
+        )}
         {/* Renderiza el NavLink solo si no está en modo móvil */}
         {!isMobile && (
           <NavLink href="#miportafolio" $isActive={activeLink === '#miportafolio'}>
@@ -217,7 +247,6 @@ const Header = () => {
           </NavLink>
         )}
       </Marca>
-
       {/* Renderiza los enlaces de texto solo si no está en modo móvil */}
       {!isMobile && (
         <Nav>
@@ -249,25 +278,34 @@ const Header = () => {
       {/* Renderiza los iconos en modo móvil */}
       {isMobile && (
         <NavCelulares>
-          <IconLink href="#miportafolio" title="Mi Portafolio">
+          {Shrunk ? (
+            <ImgPerfilContainerMobile href="#miportafolio" $isActive={activeLink === '#miportafolio'}  >
+              <ProfileImageMobile
+                src="https://avatars.githubusercontent.com/u/157653669?v=4"
+                alt="Profile Image"
+              />
+            </ImgPerfilContainerMobile>
+          ) : (
+            <IconLink href="#miportafolio" title="Mi Portafolio">
+              <FaUser />
+            </IconLink>
+          )}
+          <IconLink href="#sobremi" title="Sobre mí" $isActive={activeLink === '#sobremi'}>
             <FaUser />
           </IconLink>
-          <IconLink href="#sobremi" title="Sobre mí">
-            <FaUser />
-          </IconLink>
-          <IconLink href="#skills" title="Skills">
+          <IconLink href="#skills" title="Skills" $isActive={activeLink === '#skills'}>
             <FaToolbox />
           </IconLink>
-          <IconLink href="#hobbies" title="Hobbies">
+          <IconLink href="#hobbies" title="Hobbies" $isActive={activeLink === '#hobbies'}>
             <FaGamepad />
           </IconLink>
-          <IconLink href="#formacion" title="Formación">
+          <IconLink href="#formacion" title="Formación" $isActive={activeLink === '#formacion'}>
             <FaBookOpen />
           </IconLink>
-          <IconLink href="#proyectos" title="Proyectos">
+          <IconLink href="#proyectos" title="Proyectos" $isActive={activeLink === '#proyectos'}>
             <FaFolderOpen />
           </IconLink>
-          <IconLink href="#contacto" title="Contacto">
+          <IconLink href="#contacto" title="Contacto" $isActive={activeLink === '#contacto'}>
             <FaEnvelope />
           </IconLink>
         </NavCelulares>

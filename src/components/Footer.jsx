@@ -14,6 +14,10 @@ const FooterContainer = styled.footer`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 480px) { // Cambia a móviles
+    padding-bottom: 50px;
+  }
 `;
 
 const FooterText = styled.p`

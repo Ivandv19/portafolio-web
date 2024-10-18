@@ -50,6 +50,10 @@ const ContactForm = styled.form`
   flex-direction: column;
   align-items: center;
   width: 60%;
+
+  @media (max-width: 768px) { // Cambia a tablet
+    width: 100%;
+  }
   @media (max-width: 480px) { // Cambia a móviles
     width: 100%;
     height: auto;
@@ -108,6 +112,10 @@ const ContactoContainer = styled.section`
   align-items: center;
   justify-content: center;
 
+
+  @media (max-width: 768px) { // Cambia a tablet
+    width: 100%;
+  }
   @media (max-width: 480px) { // Cambia a móviles
     width: 100%;
     height: auto;

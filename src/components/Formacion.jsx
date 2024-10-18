@@ -49,6 +49,11 @@ const SectionTitle = styled.h2`
 const EducationList = styled.ul`
   list-style: none;
   padding: 0;
+
+  @media (max-width: 768px) { // Cambia a tablet
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 const EducationItem = styled.li`
@@ -63,6 +68,11 @@ const EducationItem = styled.li`
   svg {
     margin-right: 10px;
     color: #34495e;
+  }
+
+  @media (max-width: 768px) { // Cambia a tablet
+    display: flex;
+    flex-direction: column;
   }
 
   @media (max-width: 480px) { // Cambia a móviles

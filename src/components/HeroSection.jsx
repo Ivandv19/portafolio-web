@@ -120,8 +120,11 @@ const Info__titleAndImage = styled.section`
     justify-content: center;
     align-items: center;
 
+    @media (max-width: 768px) { // Cambia a tablet
+    padding: 0 20px;
+  }
+
     @media (max-width: 480px) { // Cambia a móviles
- 
    flex-direction: column-reverse;
   }
 `;
@@ -130,6 +133,10 @@ const Info__SectionText = styled.section`
   color: var(--color-text);
   text-align: center;
   font-weight: 100;
+
+  @media (max-width: 768px) { // Cambia a tablet
+    padding: 0 20px;
+  }
  
 `;
 
