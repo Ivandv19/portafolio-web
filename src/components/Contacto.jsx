@@ -43,6 +43,11 @@ const SectionTitle = styled.h2`
 &:hover {
   color: var(--color-primary); /* Mantiene el color del texto al hacer hover */
 }
+
+@media (max-width: 480px) { // Cambia a móviles
+    font-size: 10vw;
+  }
+  
 `;
 
 const ContactForm = styled.form`

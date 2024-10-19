@@ -34,6 +34,9 @@ const SectionTitle = styled.h2`
     width: 100%;
     left: 0;
   }
+  @media (max-width: 480px) { // Cambia a móviles
+    font-size: 11vw;
+  }
 `;
 
 const SkillsGrid = styled.div`
@@ -78,6 +81,13 @@ height: auto;
     font-size: 16px;
     font-weight: bold;
     color: #34495e;
+  }
+
+  @media (max-width: 480px) { // Cambia a móviles
+    p {
+    font-size: 4vw;
+  }
+
   }
 `;
 

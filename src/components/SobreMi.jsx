@@ -10,6 +10,11 @@ const SectionContainer = styled.section`
   width: 100%;
   height: auto; /* Cambiado a auto para que ajuste el tamaño según el contenido */
   justify-content: space-around;
+
+  @media (max-width: 480px) { // Cambia a móviles
+    padding: 120px 10px;
+  }
+
 `;
 
 const SectionTitle = styled.h2`
@@ -40,6 +45,10 @@ const SectionTitle = styled.h2`
   &:hover {
     color: var(--color-primary); /* Mantiene el color del texto al hacer hover */
   }
+
+  @media (max-width: 480px) { // Cambia a móviles
+    font-size: 11vw;
+  }
 `;
 
 
@@ -62,6 +71,10 @@ const Info__SectionText = styled.section`
   color: var(--color-background);
   text-align: center;
   line-height: 20px;
+
+  @media (max-width: 480px) { // Cambia a móviles
+    font-size: 4vw;
+  }
 `;
 
 const Highlight = styled.span`

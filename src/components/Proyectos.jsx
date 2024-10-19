@@ -46,6 +46,10 @@ const SectionTitle = styled.h2`
   &:hover {
     color: var(--color-primary); /* Mantiene el color del texto al hacer hover */
   }
+
+  @media (max-width: 480px) { // Cambia a móviles
+    font-size: 10vw;
+  }
 `;
 
 const ProjectsGrid = styled.div`
@@ -126,6 +130,10 @@ const Overlay = styled.div`
 const ProjectTitle = styled.h3`
   margin: 0;
   color: #2c3e50;
+
+  @media (max-width: 480px) { // Cambia a móviles
+    font-size: 5vw;
+  }
 `;
 
 const ProjectDescription = styled.p`
@@ -133,12 +141,20 @@ const ProjectDescription = styled.p`
   color: black;
   text-align: center;
   padding: 0 10px; /* Añadir un poco de padding lateral */
+
+  @media (max-width: 480px) { // Cambia a móviles
+    font-size: 4vw;
+  }
 `;
 
 const ProjectLinks = styled.div`
   display: flex;
   gap: 10px;
   text-decoration: none;
+
+  @media (max-width: 480px) { // Cambia a móviles
+    font-size: 4vw;
+  }
 `;
 
 const Proyectos = () => {
@@ -168,7 +184,7 @@ const Proyectos = () => {
           <Overlay>
             <ProjectTitle>Space App V3</ProjectTitle>
             <ProjectDescription>
-            es una aplicación interactiva para gestionar y visualizar contenido diverso, incluyendo una galería de imágenes, noticias y un apartado del sistema solar. Diseñada para proporcionar una experiencia visualmente atractiva, la aplicación está dividida en cuatro secciones principales.
+            es una aplicación interactiva para gestionar y visualizar contenido diverso, incluyendo una galería de imágenes, noticias y un apartado del sistema solar. 
             </ProjectDescription>
             <ProjectLinks>
               <a href="https://github.com/ivandevI9/space-app-v3" target="_blank" rel="noopener noreferrer">
@@ -185,7 +201,7 @@ const Proyectos = () => {
           <Overlay>
             <ProjectTitle>Space App v2</ProjectTitle>
             <ProjectDescription>
-              Este proyecto es una aplicación para gestionar y visualizar una galería de fotos, con funcionalidades para filtrar y buscar contenido por una palabra o por tags. Está diseñado para proporcionar una experiencia interactiva y visualmente atractiva.
+              Este proyecto es una aplicación para gestionar y visualizar una galería de fotos, con funcionalidades para filtrar y buscar contenido por una palabra o por tags. 
             </ProjectDescription>
             <ProjectLinks>
               <a href="https://github.com/ivandevI9/SpaceAppv2" target="_blank" rel="noopener noreferrer">
@@ -236,7 +252,7 @@ const Proyectos = () => {
           <Overlay>
             <ProjectTitle>Petshop</ProjectTitle>
             <ProjectDescription>
-            Este es un proyecto de gestión de contenido para un blog sobre mascotas. Permite la visualización de posts categorizados y la navegación a través de diferentes categorías y subcategorías relacionadas con el bienestar y el comportamiento de las mascotas.
+            Este es un proyecto de gestión de contenido para un blog sobre mascotas. 
             </ProjectDescription>
             <ProjectLinks>
               <a href="https://github.com/ivandevI9/petshop" target="_blank" rel="noopener noreferrer">

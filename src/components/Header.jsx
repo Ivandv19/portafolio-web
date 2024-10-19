@@ -18,15 +18,9 @@ const HeaderContainer = styled.header`
   z-index: 1;
   scroll-behavior: smooth;
 
-  @media (max-width: 768px) { /* Pantallas tablet */
-    display: grid; /* Asegúrate de que el contenedor tenga display: grid */
-    grid-template-columns: 1fr;
-   grid-template-rows: 1fr; /* Una fila */
-   height: auto;
-   overflow: hidden; /* Oculta el desbordamiento */
-  }
 
-  @media (max-width: 480px) { // Cambia a móviles
+
+  @media (max-width: 768px) { // Cambia a móviles
     grid-template-columns: 1fr; /* Una sola columna */
     padding: 0; /* Ajusta el padding */
     bottom: 0; // Asegúrate de que esto esté aquí
@@ -41,44 +35,37 @@ const HeaderContainer = styled.header`
   }
 `;
 
+// Logo con animación de salida
 const Logo = styled.img`
-  width: ${({ $isShrunk }) => ($isShrunk ? '50px' : '60px')};
+  width: ${({ $isShrunk }) => ($isShrunk ? '50px' : '80px')};
   height: auto;
   opacity: ${({ $isShrunk }) => ($isShrunk ? '0' : '1')};
-  transition: width 0.5s ease, opacity 0.5s ease;
+  transition: width 2s ease, opacity 2s ease;
 
-  @media (max-width: 768px) { // Cambia a tablet
+  @media (min-width: 768px) and (max-width: 1024px) {
     display: ${({ $isShrunk }) => ($isShrunk ? 'none' : 'block')};
+    width: 60px;
     
   }
-
-  @media (max-width: 480px) { // Cambia a móviles
-   
+  @media (max-width: 768px) { // Cambia a móviles
+    width: 50px;
   }
 `;
 
+// Imagen de perfil con animación de entrada
 const ProfileImage = styled.img`
   width: 50px;
   height: auto;
   border-radius: 50%;
-  transition: opacity 0.5s ease, transform 0.5s ease; /* Transición */
-  
+  transition: opacity 2.3s ease, transform 2.3s ease; /* Transición */
+
   &.fade-in {
     opacity: 1;
     transform: scale(1);
   }
 
-  &.fade-out {
-    opacity: 0;
-    transform: scale(0);
-  }
-
   @media (max-width: 768px) {
     display: none;
-  }
-
-  @media (max-width: 480px) {
-   display: none;
   }
 `;
 
@@ -90,7 +77,7 @@ const Marca = styled.h1`
   justify-content: center;
   width: 100%;
  
-  @media (max-width: 768px) { // Cambia a tablet
+  @media (max-width: 768px) { 
     display: flex;
     flex-direction: row;
 
@@ -105,7 +92,7 @@ const Nav = styled.nav`
   height: auto;
 
 
-  @media (max-width: 768px) { // Cambia a tablet
+  @media (max-width: 768px) { 
     width: 100%;
     justify-content: space-evenly;
  
@@ -136,8 +123,8 @@ const NavLink = styled.a`
     width: 100%;
   }
 
-  @media (max-width: 768px) { // Cambia a tablet
-    display: none; // Esconde los enlaces de texto
+  @media (max-width: 768px) { 
+    display: none; 
   }
 `;
 
@@ -186,7 +173,7 @@ const SectionContacto = styled.section``;
 
 const Header = () => {
   const [activeLink, setActiveLink] = useState('#miportafolio');
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 480);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [Shrunk, setShrunk] = useState(false);
 
   // Maneja el cambio de tamaño de la ventana
@@ -237,8 +224,15 @@ const Header = () => {
             src="https://avatars.githubusercontent.com/u/157653669?v=4"
             alt="Profile Image"
           />
+        ) : (isMobile ? (
+          <>
+          </>
         ) : (
-          <Logo src="/img/logo.gif" alt="Logo de Portafolio" />
+          <>
+            < Logo src="/img/logo.gif" alt="Logo de Portafolio" />
+          </>
+        )
+
         )}
         {/* Renderiza el NavLink solo si no está en modo móvil */}
         {!isMobile && (
@@ -287,7 +281,7 @@ const Header = () => {
             </ImgPerfilContainerMobile>
           ) : (
             <IconLink href="#miportafolio" title="Mi Portafolio">
-              <FaUser />
+              <Logo src="/img/logo.gif" alt="Logo de Portafolio" />
             </IconLink>
           )}
           <IconLink href="#sobremi" title="Sobre mí" $isActive={activeLink === '#sobremi'}>

@@ -4,7 +4,6 @@ import { FaDiscord, FaTwitter } from "react-icons/fa"; // Importar íconos de Di
 import styled from 'styled-components';
 
 const SectionContainer = styled.section`
-
   background-color: black;
   text-align: center;
   width: 100%;
@@ -14,14 +13,10 @@ const SectionContainer = styled.section`
   align-items: center;
   justify-content: center;
 
-
   @media (max-width: 480px) { // Cambia a móviles
     justify-content: flex-start;
-    padding: 50px 10px;
+    padding: 5vh 1vw 10vh 1vw; /* Padding relativo al tamaño de la pantalla */
   }
-
-
-
 `;
 
 const SectionTitle = styled.h2`
@@ -31,7 +26,7 @@ const SectionTitle = styled.h2`
   font-weight: 700;
 
   @media (max-width: 480px) { // Cambia a móviles
-    font-size: 40px;
+    font-size: 8vw;
   }
 
 `;
@@ -40,6 +35,10 @@ const ProfileImage = styled.img`
   width: 150px; /* Ajusta el tamaño según prefieras */
   border-radius: 50%; /* Hace la imagen redonda */
   margin-bottom: 20px;
+
+  @media (max-width: 480px) { // Cambia a móviles
+    max-width: 50%;
+  }
 `;
 
 const Info__SocialLinks = styled.div`
@@ -57,7 +56,10 @@ const Info__SocialLinks = styled.div`
   @media (max-width: 480px) { // Cambia a móviles
     width: 100%;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    padding: 0;
+    gap: 10px;
+    
   }
 `;
 
@@ -99,6 +101,10 @@ const SocialLink = styled.a`
   &:active {
     color: var(--color-accent);
   }
+
+  @media (max-width: 480px) { // Cambia a móviles
+    font-size: 4vw;
+  }
 `;
 
 const Info = styled.section`
@@ -121,22 +127,28 @@ const Info__titleAndImage = styled.section`
     align-items: center;
 
     @media (max-width: 768px) { // Cambia a tablet
-    padding: 0 20px;
+   
   }
 
     @media (max-width: 480px) { // Cambia a móviles
-   flex-direction: column-reverse;
+    flex-direction: column-reverse;
   }
 `;
 
 const Info__SectionText = styled.section`
   color: var(--color-text);
   text-align: center;
-  font-weight: 100;
+  font-weight: 200;
 
   @media (max-width: 768px) { // Cambia a tablet
-    padding: 0 20px;
+    padding: 0;
+    text-align: center;
   }
+
+  @media (max-width: 480px) { // Cambia a móviles
+    font-size: 4vw;
+  }
+
  
 `;
 

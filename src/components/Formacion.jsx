@@ -44,6 +44,10 @@ const SectionTitle = styled.h2`
 &:hover {
   color: var(--color-primary); /* Mantiene el color del texto al hacer hover */
 }
+
+@media (max-width: 480px) { // Cambia a móviles
+    font-size: 10vw;
+  }
 `;
 
 const EducationList = styled.ul`
@@ -80,6 +84,10 @@ const EducationItem = styled.li`
   display: flex;
   flex-direction: column;
   margin: 20px 0;
+  }
+
+  @media (max-width: 480px) { // Cambia a móviles
+    font-size: 5vw;
   }
 `;
 
