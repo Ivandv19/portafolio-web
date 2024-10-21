@@ -118,7 +118,7 @@ const Overlay = styled.div`
   width: 100%;
   height: auto;
   z-index: 1; /* Asegura que el overlay esté sobre la imagen */
-  padding: 10vw 1vh;
+  padding: 5vw 1vh;
 
   ${ProjectItem}:hover & {
     opacity: 1;
@@ -127,6 +127,7 @@ const Overlay = styled.div`
   @media (max-width: 480px) { // Cambia a móviles
     width: 100%;
     height: auto;
+    padding: 10vw 1vh;
   }
 `;
 
