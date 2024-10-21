@@ -15,7 +15,7 @@ const HeaderContainer = styled.header`
   box-shadow: 0px -3px 15px 1px var(--color-accent);
   position: fixed; // Mantiene el header en una posición fija
   top: 0; // Por defecto, el header está en la parte superior
-  z-index: 1;
+  z-index: 1000;
   scroll-behavior: smooth;
 
 
