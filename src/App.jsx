@@ -11,6 +11,7 @@ import SobreMi from './components/SobreMi'
 import GlobalStyle from './styles/GlobalStyles'
 import HeroSection from './components/HeroSection'
 import Footer from './components/Footer'
+import Experiencia from './components/Experiencia'
 
 
 
@@ -25,6 +26,7 @@ function App() {
       <Skills />
       <Hobbies />
       <Formacion />
+      <Experiencia/>
       <Proyectos />
       <Contacto />
       <Footer/>

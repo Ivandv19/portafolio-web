@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 const SectionContainer = styled.section`
   padding: 60px 20px;
-  background-color: white;
+  background-color: #ecf0f1; 
   text-align: center;
   display: flex;
   justify-content: space-evenly;

@@ -4,7 +4,7 @@ import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
 const SectionContainer = styled.section`
   padding: 60px 20px;
-  background-color: #ecf0f1; /* Color de fondo claro */
+  background-color: white;
   text-align: center;
   display: flex;
   justify-content: center;

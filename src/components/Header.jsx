@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { FaUser, FaToolbox, FaGamepad, FaBookOpen, FaFolderOpen, FaEnvelope } from 'react-icons/fa'; // Importa los íconos necesarios
+import { FaBriefcase } from 'react-icons/fa';
 
 const HeaderContainer = styled.header`
   width: 100%;
@@ -256,6 +257,9 @@ const Header = () => {
           <NavLink href="#formacion" $isActive={activeLink === '#formacion'}>
             Formación
           </NavLink>
+          <NavLink href="#experiencia" $isActive={activeLink === '#experiencia'}>
+            Experiencia
+          </NavLink>
           <NavLink href="#proyectos" $isActive={activeLink === '#proyectos'}>
             Proyectos
           </NavLink>
@@ -295,6 +299,9 @@ const Header = () => {
           </IconLink>
           <IconLink href="#formacion" title="Formación" $isActive={activeLink === '#formacion'}>
             <FaBookOpen />
+          </IconLink>
+          <IconLink href="#experiencia" title="Experiencia" $isActive={activeLink === '#experiencia'}>
+            <FaBriefcase />
           </IconLink>
           <IconLink href="#proyectos" title="Proyectos" $isActive={activeLink === '#proyectos'}>
             <FaFolderOpen />
