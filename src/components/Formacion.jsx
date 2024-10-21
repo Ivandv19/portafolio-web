@@ -65,6 +65,7 @@ const EducationItem = styled.li`
   color: #34495e;
   margin: 10px 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 5px;
@@ -114,10 +115,10 @@ const Formacion = () => {
       <SectionInfo>
         <EducationList>
           <EducationItem>
-            <FaCode /> <Title>Carrera Técnica en Programación</Title> - <Institution>CECYTEM CHIMALHUACAN II</Institution>, Chimalhuacán, Estado de México (2017-2020)
+            <FaCode /> <Title>Técnico en Programación - Bachillerato Tecnológico en Programación</Title> <Institution>CECYTEM CHIMALHUACAN II</Institution>, Chimalhuacán, Estado de México (2017-2020)
           </EducationItem>
           <EducationItem>
-            <FaLaptopCode /> <Title>Desarrollo Front-End</Title> - <Institution>Alura Latam</Institution> - Remoto (Enero 2024 - Julio 2024)
+            <FaLaptopCode /> <Title>Desarrollador Front-End Jr - Estudiante ONE (G6) - Oracle Next Education </Title> - <Institution>Alura Latam - Remoto (Enero 2024 - Julio 2024)</Institution> 
           </EducationItem>
         </EducationList>
       </SectionInfo>
