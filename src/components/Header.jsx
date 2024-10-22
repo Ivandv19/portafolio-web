@@ -74,7 +74,7 @@ const Marca = styled.h1`
   display: flex;
   align-items: center;
   font-size: 16px;
-  gap: 5px; // Reduce el espacio entre el logo y el texto
+  gap: 10px; // Reduce el espacio entre el logo y el texto
   justify-content: center;
   width: 100%;
  

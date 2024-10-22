@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
 const SectionContainer = styled.section`
-  padding: 60px 20px;
+padding: 120px 20px; /* Aumentar el padding superior para dejar espacio */
   background-color: white;
   text-align: center;
   display: flex;
@@ -12,6 +12,7 @@ const SectionContainer = styled.section`
   flex-direction: column;
   justify-content: space-evenly;
   width: 100%;
+
   @media (max-width: 480px) { // Cambia a móviles
     width: 100%;
   display: flex;
@@ -23,7 +24,7 @@ const SectionContainer = styled.section`
 
 const SectionTitle = styled.h2`
   font-size: 42px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   color: var(--color-primary);
   position: relative; /* Necesario para posicionar el pseudo-elemento */
 

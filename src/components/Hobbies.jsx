@@ -4,7 +4,7 @@ import { FaGamepad, FaFutbol, FaMusic, FaTv, FaLaptopCode } from 'react-icons/fa
 
 
 const SectionContainer = styled.section`
-  padding: 60px 20px;
+padding: 120px 20px; /* Aumentar el padding superior para dejar espacio */
   background-color: #ecf0f1;
   text-align: center;
   width: 100%;
