@@ -1,5 +1,5 @@
 import { MdOutlineArrowOutward } from "react-icons/md";
-import { FaGithub, FaLinkedin } from "react-icons/fa"; // Importar íconos de GitHub y LinkedIn
+import { FaArrowDown, FaGithub, FaLinkedin } from "react-icons/fa"; // Importar íconos de GitHub y LinkedIn
 import { FaDiscord, FaTwitter } from "react-icons/fa"; // Importar íconos de Discord y Twitter
 import styled from 'styled-components';
 
@@ -157,6 +157,60 @@ const Highlight = styled.span`
   font-weight: bold;
 `;
 
+const DownloadButton = styled.a`
+
+  width: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+  color: white;
+  padding: 10px 20px;
+  margin: 0 auto;
+ 
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: darkred;
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+    font-size: 4vw;
+  }
+`;
+
+// Aquí agregamos el contenedor para la flecha
+const ArrowDownContainer = styled.div`
+  position: absolute;
+  bottom: 50px; /* Posiciona la flecha en la parte inferior */
+  animation: bounce 1s infinite; /* Animación de rebote */
+  cursor: pointer;
+  
+  svg {
+    color: white;
+    font-size: 40px; /* Tamaño de la flecha */
+  }
+
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-10px);
+    }
+    60% {
+      transform: translateY(-5px);
+    }
+  }
+`;
+
+
 const HeroSection = () => {
   return (
     <SectionContainer id="miportafolio">
@@ -190,7 +244,17 @@ const HeroSection = () => {
             <MdOutlineArrowOutward />
           </SocialLink>
         </Info__SocialLinks>
+        {/* Botón de descarga del CV */}
+        <DownloadButton href="/cv.pdf" download>
+          Descargar CV
+        </DownloadButton>
       </Info>
+
+      {/* Flecha que indica desplazarse hacia abajo */}
+      <ArrowDownContainer onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}>
+        <FaArrowDown />
+      </ArrowDownContainer>
+
     </SectionContainer>
   );
 };
