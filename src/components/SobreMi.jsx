@@ -47,7 +47,7 @@ const SectionTitle = styled.h2`
   }
 
   @media (max-width: 480px) { // Cambia a móviles
-    font-size: 11vw;
+    font-size: 10vw;
   }
 `;
 

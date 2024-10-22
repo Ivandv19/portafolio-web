@@ -21,7 +21,7 @@ const HeaderContainer = styled.header`
 
 
 
-  @media (max-width: 768px) { // Cambia a móviles
+  @media (max-width: 900px) { 
     grid-template-columns: 1fr; /* Una sola columna */
     padding: 0; /* Ajusta el padding */
     bottom: 0; // Asegúrate de que esto esté aquí
@@ -174,13 +174,13 @@ const SectionContacto = styled.section``;
 
 const Header = () => {
   const [activeLink, setActiveLink] = useState('#miportafolio');
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 900);
   const [Shrunk, setShrunk] = useState(false);
 
   // Maneja el cambio de tamaño de la ventana
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
+      setIsMobile(window.innerWidth <= 900);
     };
 
     window.addEventListener('resize', handleResize);

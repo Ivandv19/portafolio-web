@@ -13,9 +13,14 @@ const SectionContainer = styled.section`
   align-items: center;
   justify-content: center;
 
+  @media (max-width: 900px) { 
+    justify-content: center;
+    padding: 5vw 2vh 10vw 2vh; /* Padding relativo al tamaño de la pantalla */
+  }
+
   @media (max-width: 480px) { // Cambia a móviles
     justify-content: flex-start;
-    padding: 5vh 1vw 10vh 1vw; /* Padding relativo al tamaño de la pantalla */
+    padding: 5vw 1vh 10vw 1vh; /* Padding relativo al tamaño de la pantalla */
   }
 `;
 
@@ -37,7 +42,7 @@ const ProfileImage = styled.img`
   margin-bottom: 20px;
 
   @media (max-width: 480px) { // Cambia a móviles
-    max-width: 50%;
+    max-width: 40%;
   }
 `;
 
@@ -146,7 +151,8 @@ const Info__SectionText = styled.section`
   }
 
   @media (max-width: 480px) { // Cambia a móviles
-    font-size: 4vw;
+    font-size: 3.5vw;
+    
   }
 
  
@@ -168,7 +174,6 @@ const DownloadButton = styled.a`
   color: white;
   padding: 10px 20px;
   margin: 0 auto;
- 
   border-radius: 5px;
   text-decoration: none;
   font-weight: bold;
@@ -180,15 +185,15 @@ const DownloadButton = styled.a`
   }
 
   @media (max-width: 480px) {
-    width: 100%;
-    font-size: 4vw;
+    width: 50vw;
+    font-size: 3.5vw;
   }
 `;
 
 // Aquí agregamos el contenedor para la flecha
 const ArrowDownContainer = styled.div`
   position: absolute;
-  bottom: 50px; /* Posiciona la flecha en la parte inferior */
+  bottom: 3vh; /* Posiciona la flecha en la parte inferior */
   animation: bounce 1s infinite; /* Animación de rebote */
   cursor: pointer;
   
@@ -207,6 +212,13 @@ const ArrowDownContainer = styled.div`
     60% {
       transform: translateY(-5px);
     }
+  }
+  @media (max-width: 900px) { // Cambia a tablet
+    bottom: 10vh; /* Posiciona la flecha en la parte inferior */
+  }
+
+  @media (max-width: 480px) {
+    display: none;
   }
 `;
 

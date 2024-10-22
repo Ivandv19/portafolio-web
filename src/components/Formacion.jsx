@@ -26,7 +26,6 @@ const SectionTitle = styled.h2`
   color: var(--color-primary);
   position: relative; /* Necesario para posicionar el pseudo-elemento */
 
-/* Barra debajo del texto que aparece al pasar el mouse */
 &::after {
   content: '';
   position: absolute;
