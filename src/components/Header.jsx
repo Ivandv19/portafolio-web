@@ -66,7 +66,7 @@ const ProfileImage = styled.img`
   }
 
   @media (min-width: 768px) and (max-width: 1024px) {
-    display: none;
+    display: ${({ $isShrunk }) => ($isShrunk ? 'block' : 'none')};
     
   }
 
