@@ -65,6 +65,11 @@ const ProfileImage = styled.img`
     transform: scale(1);
   }
 
+  @media (min-width: 768px) and (max-width: 1024px) {
+    display: none;
+    
+  }
+
   @media (max-width: 768px) {
     display: none;
   }
