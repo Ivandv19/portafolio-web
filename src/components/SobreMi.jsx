@@ -8,7 +8,7 @@ const SectionContainer = styled.section`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: auto; /* Cambiado a auto para que ajuste el tamaño según el contenido */
+  height: 70vh;
   justify-content: space-around;
 
   @media (max-width: 480px) { // Cambia a móviles

@@ -212,7 +212,7 @@ const Header = () => {
       const sectionHeight = section.offsetHeight;
 
       // Verifica si el scroll actual está dentro de la sección
-      if (scrollPos >= sectionTop - sectionHeight / 2 && scrollPos < sectionTop + sectionHeight / 2) {
+      if (scrollPos >= sectionTop - sectionHeight / 3 && scrollPos < sectionTop + sectionHeight / 3) {
         const currentSectionId = `#${section.id}`;
         lastActiveLink = currentSectionId;
       }

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
 const SectionContainer = styled.section`
-padding: 120px 20px; /* Aumentar el padding superior para dejar espacio */
+    padding: 60px 20px;
   background-color: white;
   text-align: center;
   display: flex;

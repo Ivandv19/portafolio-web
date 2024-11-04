@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { FaCode, FaLaptopCode } from 'react-icons/fa';
 
 const SectionContainer = styled.section`
- padding: 60px 20px;
+padding: 120px 20px;
  background-color: #ecf0f1; 
   text-align: center;
   display: flex;
