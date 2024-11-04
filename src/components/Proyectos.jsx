@@ -225,10 +225,16 @@ const ProyectInfo = styled.section`
 
 const Proyectos = () => {
   return (
+    // Contenedor de la sección "Proyectos" con el id "proyectos" para referencia en la navegación
     <SectionContainer id="proyectos">
+      
+      {/* Título principal de la sección */}
       <SectionTitle>Proyectos</SectionTitle>
+      
+      {/* Contenedor de la cuadrícula de proyectos */}
       <ProjectsGrid>
-
+        
+        {/* Primer proyecto: Encriptador de Texto */}
         <ProjectItem>
           <ProjectImage src="/img/encriptador.png" alt="Descripción del Proyecto 3" />
           <Overlay>
@@ -255,12 +261,13 @@ const Proyectos = () => {
           </ProyectInfo>
         </ProjectItem>
 
+        {/* Segundo proyecto: Space App V3 */}
         <ProjectItem>
           <ProjectImage src="/img/spaceappv3.png" alt="Descripción del Proyecto 2" />
           <Overlay>
             <ProjectTitle>Space App V3</ProjectTitle>
             <ProjectDescription>
-              es una aplicación interactiva para gestionar y visualizar contenido diverso, incluyendo una galería de imágenes, noticias y un apartado del sistema solar.
+              Es una aplicación interactiva para gestionar y visualizar contenido diverso, incluyendo una galería de imágenes, noticias y un apartado del sistema solar.
             </ProjectDescription>
           </Overlay>
           <ProyectInfo>
@@ -288,6 +295,7 @@ const Proyectos = () => {
           </ProyectInfo>
         </ProjectItem>
 
+        {/* Tercer proyecto: Space App v2 */}
         <ProjectItem>
           <ProjectImage src="/img/spaceappv2.png" alt="Descripción del Proyecto 4" />
           <Overlay>
@@ -295,9 +303,7 @@ const Proyectos = () => {
             <ProjectDescription>
               Este proyecto es una aplicación para gestionar y visualizar una galería de fotos, con funcionalidades para filtrar y buscar contenido por una palabra o por tags.
             </ProjectDescription>
-
           </Overlay>
-
           <ProyectInfo>
             <p>Tecnologías utilizadas:</p>
             <ul>
@@ -323,7 +329,7 @@ const Proyectos = () => {
           </ProyectInfo>
         </ProjectItem>
 
-
+        {/* Cuarto proyecto: AluraFlix */}
         <ProjectItem>
           <ProjectImage src="/img/aluraflix.png" alt="Descripción del Proyecto 1" />
           <Overlay>
@@ -332,7 +338,6 @@ const Proyectos = () => {
               Aluraflix es una aplicación web diseñada para gestionar y explorar una colección de videos.
             </ProjectDescription>
           </Overlay>
-
           <ProyectInfo>
             <p>Tecnologías utilizadas:</p>
             <ul>
@@ -358,6 +363,7 @@ const Proyectos = () => {
           </ProyectInfo>
         </ProjectItem>
 
+        {/* Quinto proyecto: Alura Cinema */}
         <ProjectItem>
           <ProjectImage src="/img/alura-cinema.png" alt="Descripción del Proyecto 2" />
           <Overlay>
@@ -365,9 +371,7 @@ const Proyectos = () => {
             <ProjectDescription>
               Este proyecto es una aplicación para gestionar y visualizar videos, con funcionalidades interactivas.
             </ProjectDescription>
-       
           </Overlay>
-
           <ProyectInfo>
             <p>Tecnologías utilizadas:</p>
             <ul>
@@ -393,6 +397,7 @@ const Proyectos = () => {
           </ProyectInfo>
         </ProjectItem>
 
+        {/* Sexto proyecto: Petshop */}
         <ProjectItem>
           <ProjectImage src="/img/petshop.png" alt="Descripción del Proyecto 2" />
           <Overlay>
@@ -400,9 +405,7 @@ const Proyectos = () => {
             <ProjectDescription>
               Este es un proyecto de gestión de contenido para un blog sobre mascotas.
             </ProjectDescription>
-            
           </Overlay>
-
           <ProyectInfo>
             <p>Tecnologías utilizadas:</p>
             <ul>
@@ -427,7 +430,7 @@ const Proyectos = () => {
             </ProjectLinks>
           </ProyectInfo>
         </ProjectItem>
-        
+
       </ProjectsGrid>
     </SectionContainer>
   );

@@ -105,13 +105,19 @@ const hobbies = [
 
 const Hobbies = () => {
   return (
+    // Contenedor de la sección "Hobbies" con el id "hobbies" para referencia en la navegación
     <SectionContainer id="hobbies">
+      
+      {/* Título principal de la sección */}
       <SectionTitle>Hobbies</SectionTitle>
+      
+      {/* Contenedor de la cuadrícula de hobbies */}
       <HobbiesGrid>
+        {/* Mapea el array 'hobbies' y genera un HobbiesCard por cada hobby */}
         {hobbies.map((skill, index) => (
           <HobbiesCard key={index}>
-            {skill.icon}
-            <p>{skill.name}</p>
+            {skill.icon}  {/* Ícono del hobby */}
+            <p>{skill.name}</p>  {/* Nombre del hobby */}
           </HobbiesCard>
         ))}
       </HobbiesGrid>

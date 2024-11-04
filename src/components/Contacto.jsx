@@ -135,64 +135,70 @@ const ContactoContainer = styled.section`
 `;
 
 const Contacto = () => {
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+  // Estados para controlar el envío del formulario, la carga y los errores
+  const [isSubmitted, setIsSubmitted] = useState(false); // Indica si el formulario se ha enviado
+  const [isLoading, setIsLoading] = useState(false); // Indica si se está enviando el formulario
+  const [error, setError] = useState(null); // Almacena cualquier error que ocurra durante el envío
 
+  // Maneja el envío del formulario
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsLoading(true); // Comienza a cargar
+    e.preventDefault(); // Previene el comportamiento por defecto del formulario
+    setIsLoading(true); // Comienza a cargar al enviar el formulario
 
     // Manejo del envío del formulario
-    const form = e.target;
-    const data = new FormData(form);
+    const form = e.target; // Obtiene el formulario que se está enviando
+    const data = new FormData(form); // Crea un objeto FormData con los datos del formulario
 
     try {
+      // Realiza la solicitud de envío
       const response = await fetch(form.action, {
-        method: form.method,
-        body: data,
+        method: form.method, // Usa el método especificado en el formulario (POST)
+        body: data, // Envía los datos del formulario
         headers: {
           'Accept': 'application/json' // Para recibir la respuesta en formato JSON
         }
       });
 
       if (response.ok) {
-        setIsSubmitted(true); // Cambia el estado a enviado
-        setError(null); // Reinicia el error
+        setIsSubmitted(true); // Cambia el estado a enviado si la respuesta es exitosa
+        setError(null); // Reinicia el estado de error si el envío fue exitoso
       } else {
+        // Si la respuesta no es exitosa, lanza un error
         throw new Error('Error al enviar el formulario');
       }
     } catch (err) {
-      console.error(err);
-      setError('Hubo un problema al enviar el formulario. Inténtalo de nuevo más tarde.');
+      // Maneja cualquier error que ocurra durante el envío
+      console.error(err); // Muestra el error en la consola para depuración
+      setError('Hubo un problema al enviar el formulario. Inténtalo de nuevo más tarde.'); // Establece el mensaje de error
     } finally {
-      setIsLoading(false); // Termina la carga
+      setIsLoading(false); // Termina la carga al final del envío, independientemente del resultado
     }
   };
 
   return (
-    <SectionContainer id="contacto">
-      <ContactoContainer>
-        <SectionTitle>Contacto</SectionTitle>
-        {!isSubmitted ? (
+    <SectionContainer id="contacto"> {/* Contenedor principal de la sección de contacto */}
+      <ContactoContainer> {/* Contenedor específico para el contacto */}
+        <SectionTitle>Contacto</SectionTitle> {/* Título de la sección */}
+        {!isSubmitted ? ( // Verifica si el formulario ha sido enviado
           <ContactForm
             action="https://formspree.io/f/xeoqjwqw" // Tu endpoint de Formspree
-            method="POST"
+            method="POST" // Método de envío del formulario
             onSubmit={handleSubmit} // Manejo del envío
           >
-            <Input type="text" name="nombre" placeholder="Tu nombre" required />
-            <Input type="email" name="correo" placeholder="Tu correo electrónico" required />
-            <TextArea name="mensaje" placeholder="Tu mensaje" required />
-            <SubmitButton type="submit" disabled={isLoading}>Enviar</SubmitButton>
+            <Input type="text" name="nombre" placeholder="Tu nombre" required /> {/* Campo de nombre */}
+            <Input type="email" name="correo" placeholder="Tu correo electrónico" required /> {/* Campo de correo */}
+            <TextArea name="mensaje" placeholder="Tu mensaje" required /> {/* Campo de mensaje */}
+            <SubmitButton type="submit" disabled={isLoading}>Enviar</SubmitButton> {/* Botón de envío, deshabilitado durante la carga */}
           </ContactForm>
         ) : (
-          <SuccessMessage>¡Tu mensaje ha sido enviado con éxito!</SuccessMessage>
+          <SuccessMessage>¡Tu mensaje ha sido enviado con éxito!</SuccessMessage> // Mensaje de éxito si se envía correctamente
         )}
-        {isLoading && <LoadingMessage>Enviando...</LoadingMessage>}
-        {error && <ErrorMessage>{error}</ErrorMessage>}
+        
+        {isLoading && <LoadingMessage>Enviando...</LoadingMessage>} {/* Mensaje de carga mientras se envía */}
+        {error && <ErrorMessage>{error}</ErrorMessage>} {/* Mensaje de error si ocurre algún problema */}
       </ContactoContainer>
     </SectionContainer>
   );
 };
 
-export default Contacto;
+export default Contacto; // Exporta el componente para su uso en otras partes de la aplicación

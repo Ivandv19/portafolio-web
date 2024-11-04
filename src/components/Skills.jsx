@@ -94,6 +94,31 @@ height: auto;
   }
 `;
 
+const SkillSection = styled.section`
+ width: 100%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 20px;
+
+h2{
+  color: black;
+}
+
+h3{
+  color: black;
+}
+
+@media (max-width: 480px) { // Cambia a móviles
+  h2{
+    font-size: 7vw;
+  }
+    
+  }
+  
+`
+
 
 
 const skillsTécnicas = [
@@ -143,63 +168,50 @@ const skillsBlandas = [
 
 ];
 
-const SkillSection = styled.section`
- width: 100%;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-gap: 20px;
 
-h2{
-  color: black;
-}
-
-h3{
-  color: black;
-}
-
-@media (max-width: 480px) { // Cambia a móviles
-  h2{
-    font-size: 7vw;
-  }
-    
-  }
-  
-`
 
 const Skills = () => {
   return (
+    // Contenedor de la sección "Skills" con el id "skills" para que pueda ser referenciado desde enlaces de navegación
     <SectionContainer id="skills">
+      
+      {/* Título principal de la sección */}
       <SectionTitle>Skills</SectionTitle>
+      
+      {/* Sección para habilidades técnicas */}
       <SkillSection>
         <h2>Habilidades Técnicas</h2>
         <SkillsGrid>
+          {/* Mapea el array 'skillsTécnicas' y genera un SkillCard por cada habilidad técnica */}
           {skillsTécnicas.map((skill, index) => (
             <SkillCard key={index}>
-              {skill.icon}
-              <p>{skill.name}</p>
+              {skill.icon}  {/* Ícono de la habilidad técnica */}
+              <p>{skill.name}</p>  {/* Nombre de la habilidad técnica */}
             </SkillCard>
           ))}
         </SkillsGrid>
+
         <h3>Habilidades Técnicas en desarrollo</h3>
         <SkillsGrid>
+          {/* Mapea el array 'skillsTécnicasEnDesarrollo' y genera un SkillCard por cada habilidad en desarrollo */}
           {skillsTécnicasEnDesarrollo.map((skill, index) => (
             <SkillCard key={index}>
-              {skill.icon}
-              <p>{skill.name}</p>
+              {skill.icon}  {/* Ícono de la habilidad en desarrollo */}
+              <p>{skill.name}</p>  {/* Nombre de la habilidad en desarrollo */}
             </SkillCard>
           ))}
         </SkillsGrid>
       </SkillSection>
 
+      {/* Sección para habilidades blandas */}
       <SkillSection>
         <h2>Habilidades Blandas</h2>
         <SkillsGrid>
+          {/* Mapea el array 'skillsBlandas' y genera un SkillCard por cada habilidad blanda */}
           {skillsBlandas.map((skill, index) => (
             <SkillCard key={index}>
-              {skill.icon}
-              <p>{skill.name}</p>
+              {skill.icon}  {/* Ícono de la habilidad blanda */}
+              <p>{skill.name}</p>  {/* Nombre de la habilidad blanda */}
             </SkillCard>
           ))}
         </SkillsGrid>
