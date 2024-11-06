@@ -5,60 +5,49 @@ import { FaBriefcase } from 'react-icons/fa';
 
 const HeaderContainer = styled.header`
   width: 100%;
-  height: auto;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   align-items: center;
-  padding: 10px 20px; // Puedes reducir esto si lo deseas
+  padding: 10px 20px;
   background-color: var(--color-primary);
   color: var(--color-text);
   border-bottom: 3px solid var(--color-accent);
   box-shadow: 0px -3px 15px 1px var(--color-accent);
-  position: fixed; // Mantiene el header en una posición fija
-  top: 0; // Por defecto, el header está en la parte superior
+  position: fixed;
+  top: 0; // Header fijo en la parte superior
   z-index: 1000;
-  scroll-behavior: smooth;
 
-
-
-  @media (max-width: 900px) { 
-    grid-template-columns: 1fr; /* Una sola columna */
-    padding: 0; /* Ajusta el padding */
-    bottom: 0; // Asegúrate de que esto esté aquí
-    top: auto; // Establece 'top' en 'auto' para quitarlo de la parte superior
-    border-top: 3px solid var(--color-accent); // Cambia el border a la parte superior
-    box-shadow: 0px 3px 15px 1px var(--color-accent); // Ajusta la sombra si es necesario
-    border-bottom: 0;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    padding: 0;
+    bottom: 0; // Reubica el header en la parte inferior en pantallas móviles
+    top: auto; // Ajusta el top para evitar conflictos con bottom
+    border-top: 3px solid var(--color-accent);
+    box-shadow: 0px 3px 15px 1px var(--color-accent); // Cambia la sombra para coincidir con la ubicación inferior
   }
 `;
 
-// Logo con animación de salida
+// Logo con animación para el cambio de tamaño
 const Logo = styled.img`
-  width: ${({ $isShrunk }) => ($isShrunk ? '50px' : '80px')};
-  height: auto;
+  width: ${({ $isShrunk }) => ($isShrunk ? '50px' : '80px')}; // Ajuste del tamaño según el estado
   opacity: ${({ $isShrunk }) => ($isShrunk ? '0' : '1')};
   transition: width 2s ease, opacity 2s ease;
 
   @media (min-width: 768px) and (max-width: 1024px) {
     display: ${({ $isShrunk }) => ($isShrunk ? 'none' : 'block')};
     width: 60px;
-    
   }
-  @media (max-width: 768px) { // Cambia a móviles
+
+  @media (max-width: 768px) {
     width: 50px;
   }
 `;
 
-// Imagen de perfil con animación de entrada
+// Imagen de perfil con animación de aparición
 const ProfileImage = styled.img`
   width: 50px;
-  height: auto;
   border-radius: 50%;
-  transition: opacity 2.3s ease, transform 2.3s ease; /* Transición */
+  transition: opacity 2.3s ease, transform 2.3s ease;
 
   &.fade-in {
     opacity: 1;
@@ -67,7 +56,6 @@ const ProfileImage = styled.img`
 
   @media (min-width: 768px) and (max-width: 900px) {
     display: ${({ $isShrunk }) => ($isShrunk ? 'block' : 'none')};
-    
   }
 
   @media (max-width: 768px) {
@@ -75,36 +63,34 @@ const ProfileImage = styled.img`
   }
 `;
 
+// Contenedor de la marca (logo y texto)
 const Marca = styled.h1`
   display: flex;
   align-items: center;
   font-size: 16px;
-  gap: 10px; // Reduce el espacio entre el logo y el texto
+  gap: 10px;
   justify-content: center;
   width: 100%;
- 
-  @media (max-width: 768px) { 
-    display: flex;
-    flex-direction: row;
 
+  @media (max-width: 768px) {
+    flex-direction: row;
   }
 `;
 
+// Navegación principal
 const Nav = styled.nav`
-  display: flex; 
-  justify-content: center; 
-  gap: 10px; // Reduce el espacio entre los enlaces
+  display: flex;
+  justify-content: center;
+  gap: 10px;
   width: 100%;
-  height: auto;
 
-
-  @media (max-width: 768px) { 
+  @media (max-width: 768px) {
     width: 100%;
     justify-content: space-evenly;
- 
   }
 `;
 
+// Enlaces de navegación
 const NavLink = styled.a`
   color: white;
   text-decoration: none;
@@ -115,7 +101,7 @@ const NavLink = styled.a`
   &::after {
     content: '';
     position: absolute;
-    width: ${({ $isActive }) => ($isActive ? '100%' : '0')};
+    width: ${({ $isActive }) => ($isActive ? '100%' : '0')}; // Subrayado dinámico basado en el estado activo
     height: 2px;
     background-color: var(--color-secondary);
     left: 50%;
@@ -129,89 +115,89 @@ const NavLink = styled.a`
     width: 100%;
   }
 
-  @media (max-width: 768px) { 
-    display: none; 
+  @media (max-width: 768px) {
+    display: none;
   }
 `;
 
-
-
+// Enlaces con íconos en modo móvil
 const IconLink = styled.a`
   color: white;
   text-decoration: none;
   width: 20px;
-  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
 
-   svg {
+  svg {
     width: 100%;
-    height: auto;
-   }
+  }
 `;
 
+// Navegación en modo móvil
 const NavCelulares = styled.section`
   display: flex;
   justify-content: space-around;
   padding: 5px;
 `
 
+// Imagen de perfil específica para dispositivos móviles
 const ProfileImageMobile = styled.img`
-   width: 50px;
-  height: auto;
+  width: 50px;
   border-radius: 50%;
-  transition: opacity 0.5s ease, transform 0.5s ease; /* Transición */
+  transition: opacity 0.5s ease, transform 0.5s ease;
 `
 
+// Contenedor para la imagen de perfil en dispositivos móviles
 const ImgPerfilContainerMobile = styled.a`
-   display: flex;
+  display: flex;
   justify-content: center;
   align-items: center;
 
   img {
     width: 30px;
-    height: auto;
   }
 `
 
+// Sección de contacto (personalizable para estilos adicionales)
 const SectionContacto = styled.section``;
 
+
 const Header = () => {
-  // Estado para el enlace activo (por defecto: '#miportafolio')
+  // Estado para el enlace activo (por defecto se establece en '#miportafolio')
   const [activeLink, setActiveLink] = useState('#miportafolio');
-  
+
   // Estado para detectar si la ventana está en modo móvil (pantalla <= 900px)
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 900);
-  
-  // Estado para definir si el header está en su versión "comprimida"
+
+  // Estado para definir si el header está en su versión "comprimida" (true si se ha hecho scroll)
   const [Shrunk, setShrunk] = useState(false);
 
-  // useEffect para actualizar el estado 'isMobile' al cambiar el tamaño de la ventana
+  // useEffect que se ejecuta al montar el componente, para actualizar 'isMobile' cuando cambia el tamaño de la ventana
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 900);
+      setIsMobile(window.innerWidth <= 900); // Actualiza el estado si la ventana es <= 900px
     };
 
     // Escucha el evento de redimensionamiento
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize); // Limpieza del evento al desmontar
+    return () => window.removeEventListener('resize', handleResize); // Limpia el evento al desmontar
   }, []);
 
   // Función para manejar el scroll de la página
   const handleScroll = () => {
-    const scrollPos = window.scrollY;
-    setShrunk(scrollPos > 50); // Comprime el header cuando se desplaza hacia abajo
+    const scrollPos = window.scrollY; // Obtiene la posición de scroll en Y
+    setShrunk(scrollPos > 50); // Si se ha desplazado > 50px, se define como "comprimido"
 
-    // Obtiene todas las secciones para actualizar el enlace activo
+    // Obtiene todas las secciones para determinar en cuál se encuentra el scroll
     const sections = document.querySelectorAll('section');
     let lastActiveLink = activeLink;
 
     sections.forEach((section) => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.offsetHeight;
+      const sectionTop = section.offsetTop; // Posición superior de la sección
+      const sectionHeight = section.offsetHeight; // Altura de la sección
 
-      // Verifica si el scroll actual está dentro de la sección
+      // Verifica si el scroll actual está dentro de los límites de la sección
       if (scrollPos >= sectionTop - sectionHeight / 3 && scrollPos < sectionTop + sectionHeight / 3) {
         const currentSectionId = `#${section.id}`;
         lastActiveLink = currentSectionId;
@@ -224,12 +210,12 @@ const Header = () => {
     }
   };
 
-  // useEffect para escuchar el evento de scroll y llamar a handleScroll
+  // useEffect que añade un listener de scroll para llamar a handleScroll
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll); // Limpieza del evento al desmontar
+      window.removeEventListener('scroll', handleScroll); // Limpia el evento al desmontar
     };
   }, [activeLink]);
 
@@ -237,7 +223,7 @@ const Header = () => {
     <HeaderContainer>
       <Marca>
         {Shrunk ? (
-          // Imagen de perfil visible en modo "comprimido"
+          // Muestra imagen de perfil en modo comprimido
           <ProfileImage
             src="https://avatars.githubusercontent.com/u/157653669?v=4"
             alt="Profile Image"
@@ -248,13 +234,11 @@ const Header = () => {
             <>
             </>
           ) : (
-            <>
-              <Logo src="/img/logo.gif" alt="Logo de Portafolio" />
-            </>
+            <Logo src="/img/logo.gif" alt="Logo de Portafolio" />
           )
         )}
-        
-        {/* Renderiza el enlace "Mi Portafolio" solo si no está en modo móvil */}
+
+        {/* Enlace "Mi Portafolio" visible solo en pantallas grandes */}
         {!isMobile && (
           <NavLink href="#miportafolio" $isActive={activeLink === '#miportafolio'}>
             Mi Portafolio
@@ -262,7 +246,7 @@ const Header = () => {
         )}
       </Marca>
 
-      {/* Renderiza los enlaces de navegación solo en pantallas grandes */}
+      {/* Navegación visible solo en pantallas grandes */}
       {!isMobile && (
         <Nav>
           <NavLink href="#sobremi" $isActive={activeLink === '#sobremi'}>
@@ -285,8 +269,8 @@ const Header = () => {
           </NavLink>
         </Nav>
       )}
-      
-      {/* Renderiza el enlace de contacto solo en pantallas grandes */}
+
+      {/* Enlace de contacto visible solo en pantallas grandes */}
       {!isMobile && (
         <SectionContacto>
           <NavLink href="#contacto" $isActive={activeLink === '#contacto'}>
@@ -295,7 +279,7 @@ const Header = () => {
         </SectionContacto>
       )}
 
-      {/* Renderiza los íconos en lugar de texto en modo móvil */}
+      {/* Íconos de navegación en modo móvil */}
       {isMobile && (
         <NavCelulares>
           {Shrunk ? (
@@ -312,8 +296,8 @@ const Header = () => {
               <Logo src="/img/logo.gif" alt="Logo de Portafolio" />
             </IconLink>
           )}
-          
-          {/* Enlaces de iconos para navegación en móviles */}
+
+          {/* Enlaces de iconos en navegación móvil */}
           <IconLink href="#sobremi" title="Sobre mí" $isActive={activeLink === '#sobremi'}>
             <FaUser />
           </IconLink>
