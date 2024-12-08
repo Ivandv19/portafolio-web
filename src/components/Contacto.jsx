@@ -1,9 +1,9 @@
-import styled from 'styled-components';
-import { useState } from 'react';
+import styled from "styled-components";
+import { useState } from "react";
 
 const SectionContainer = styled.section`
   padding: 60px 20px;
-  background-color: #ecf0f1; 
+  background-color: #ecf0f1;
   text-align: center;
   display: flex;
   justify-content: space-evenly;
@@ -12,7 +12,8 @@ const SectionContainer = styled.section`
   width: 100%;
   height: 80vh;
 
-  @media (max-width: 480px) { // Cambia a móviles
+  @media (max-width: 480px) {
+    // Cambia a móviles
     width: 100%;
     height: 100vh;
     justify-content: flex-start;
@@ -23,28 +24,33 @@ const SectionTitle = styled.h2`
   font-size: 42px;
   margin-bottom: 20px;
   color: var(--color-primary);
-  position: relative; /* Necesario para posicionar el pseudo-elemento */
+  position: relative; 
 
   /* Barra debajo del texto que aparece al pasar el mouse */
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -5px; /* Ajusta la distancia de la barra al texto */
     left: 50%;
     width: 0;
     height: 2px;
-    background-color: var(--color-secondary); /* Rojo oscuro */
-    transition: width 0.4s ease, left 0.4s ease; /* Animación suave */
+    background-color: var(--color-secondary); 
+    transition:
+      width 0.4s ease,
+      left 0.4s ease; 
   }
   &:hover::after {
     width: 100%; /* La barra se extiende a todo el ancho */
     left: 0; /* La barra se anima desde el centro hacia los extremos */
   }
   &:hover {
-    color: var(--color-primary); /* Mantiene el color del texto al hacer hover */
+    color: var(
+      --color-primary
+    ); /* Mantiene el color del texto al hacer hover */
   }
 
-  @media (max-width: 480px) { // Cambia a móviles
+  @media (max-width: 480px) {
+    // Cambia a móviles
     font-size: 10vw;
   }
 `;
@@ -55,10 +61,12 @@ const ContactForm = styled.form`
   align-items: center;
   width: 60%;
 
-  @media (max-width: 768px) { // Cambia a tablet
+  @media (max-width: 768px) {
+    // Cambia a tablet
     width: 100%;
   }
-  @media (max-width: 480px) { // Cambia a móviles
+  @media (max-width: 480px) {
+    // Cambia a móviles
     width: 100%;
     height: auto;
   }
@@ -71,7 +79,8 @@ const Input = styled.input`
   border: 1px solid #bdc3c7;
   border-radius: 4px;
 
-  @media (max-width: 480px) { // Cambia a móviles
+  @media (max-width: 480px) {
+    // Cambia a móviles
     width: 100%;
     height: auto;
   }
@@ -99,7 +108,8 @@ const SubmitButton = styled.button`
     background-color: #1abc9c; /* Color al pasar el mouse */
   }
 
-  @media (max-width: 480px) { // Cambia a móviles
+  @media (max-width: 480px) {
+    // Cambia a móviles
     width: 100%;
     height: auto;
   }
@@ -125,10 +135,12 @@ const ContactoContainer = styled.section`
   align-items: center;
   justify-content: center;
 
-  @media (max-width: 768px) { // Cambia a tablet
+  @media (max-width: 768px) {
+    // Cambia a tablet
     width: 100%;
   }
-  @media (max-width: 480px) { // Cambia a móviles
+  @media (max-width: 480px) {
+    // Cambia a móviles
     width: 100%;
     height: auto;
   }
@@ -155,8 +167,8 @@ const Contacto = () => {
         method: form.method, // Usa el método especificado en el formulario (POST)
         body: data, // Envía los datos del formulario
         headers: {
-          'Accept': 'application/json' // Para recibir la respuesta en formato JSON
-        }
+          Accept: "application/json", // Para recibir la respuesta en formato JSON
+        },
       });
 
       if (response.ok) {
@@ -164,20 +176,26 @@ const Contacto = () => {
         setError(null); // Reinicia el estado de error si el envío fue exitoso
       } else {
         // Si la respuesta no es exitosa, lanza un error
-        throw new Error('Error al enviar el formulario');
+        throw new Error("Error al enviar el formulario");
       }
     } catch (err) {
       // Maneja cualquier error que ocurra durante el envío
       console.error(err); // Muestra el error en la consola para depuración
-      setError('Hubo un problema al enviar el formulario. Inténtalo de nuevo más tarde.'); // Establece el mensaje de error
+      setError(
+        "Hubo un problema al enviar el formulario. Inténtalo de nuevo más tarde.",
+      ); // Establece el mensaje de error
     } finally {
       setIsLoading(false); // Termina la carga al final del envío, independientemente del resultado
     }
   };
 
   return (
-    <SectionContainer id="contacto"> {/* Contenedor principal de la sección de contacto */}
-      <ContactoContainer> {/* Contenedor específico para el contacto */}
+    <SectionContainer id="contacto">
+      {" "}
+      {/* Contenedor principal de la sección de contacto */}
+      <ContactoContainer>
+        {" "}
+        {/* Contenedor específico para el contacto */}
         <SectionTitle>Contacto</SectionTitle> {/* Título de la sección */}
         {!isSubmitted ? ( // Verifica si el formulario ha sido enviado
           <ContactForm
@@ -185,17 +203,31 @@ const Contacto = () => {
             method="POST" // Método de envío del formulario
             onSubmit={handleSubmit} // Manejo del envío
           >
-            <Input type="text" name="nombre" placeholder="Tu nombre" required /> {/* Campo de nombre */}
-            <Input type="email" name="correo" placeholder="Tu correo electrónico" required /> {/* Campo de correo */}
-            <TextArea name="mensaje" placeholder="Tu mensaje" required /> {/* Campo de mensaje */}
-            <SubmitButton type="submit" disabled={isLoading}>Enviar</SubmitButton> {/* Botón de envío, deshabilitado durante la carga */}
+            <Input type="text" name="nombre" placeholder="Tu nombre" required />{" "}
+            {/* Campo de nombre */}
+            <Input
+              type="email"
+              name="correo"
+              placeholder="Tu correo electrónico"
+              required
+            />{" "}
+            {/* Campo de correo */}
+            <TextArea name="mensaje" placeholder="Tu mensaje" required />{" "}
+            {/* Campo de mensaje */}
+            <SubmitButton type="submit" disabled={isLoading}>
+              Enviar
+            </SubmitButton>{" "}
+            {/* Botón de envío, deshabilitado durante la carga */}
           </ContactForm>
         ) : (
-          <SuccessMessage>¡Tu mensaje ha sido enviado con éxito!</SuccessMessage> // Mensaje de éxito si se envía correctamente
+          <SuccessMessage>
+            ¡Tu mensaje ha sido enviado con éxito!
+          </SuccessMessage> // Mensaje de éxito si se envía correctamente
         )}
-        
-        {isLoading && <LoadingMessage>Enviando...</LoadingMessage>} {/* Mensaje de carga mientras se envía */}
-        {error && <ErrorMessage>{error}</ErrorMessage>} {/* Mensaje de error si ocurre algún problema */}
+        {isLoading && <LoadingMessage>Enviando...</LoadingMessage>}{" "}
+        {/* Mensaje de carga mientras se envía */}
+        {error && <ErrorMessage>{error}</ErrorMessage>}{" "}
+        {/* Mensaje de error si ocurre algún problema */}
       </ContactoContainer>
     </SectionContainer>
   );

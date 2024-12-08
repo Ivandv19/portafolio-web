@@ -1,7 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import { FaUser, FaToolbox, FaGamepad, FaBookOpen, FaFolderOpen, FaEnvelope } from 'react-icons/fa'; // Importa los íconos necesarios
-import { FaBriefcase } from 'react-icons/fa';
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
+import {
+  FaUser,
+  FaToolbox,
+  FaGamepad,
+  FaBookOpen,
+  FaFolderOpen,
+  FaEnvelope,
+} from "react-icons/fa"; // Importa los íconos necesarios
+import { FaBriefcase } from "react-icons/fa";
 
 const HeaderContainer = styled.header`
   width: 100%;
@@ -29,12 +36,15 @@ const HeaderContainer = styled.header`
 
 // Logo con animación para el cambio de tamaño
 const Logo = styled.img`
-  width: ${({ $isShrunk }) => ($isShrunk ? '50px' : '80px')}; // Ajuste del tamaño según el estado
-  opacity: ${({ $isShrunk }) => ($isShrunk ? '0' : '1')};
-  transition: width 2s ease, opacity 2s ease;
+  width: ${({ $isShrunk }) =>
+    $isShrunk ? "50px" : "80px"}; // Ajuste del tamaño según el estado
+  opacity: ${({ $isShrunk }) => ($isShrunk ? "0" : "1")};
+  transition:
+    width 2s ease,
+    opacity 2s ease;
 
   @media (min-width: 768px) and (max-width: 1024px) {
-    display: ${({ $isShrunk }) => ($isShrunk ? 'none' : 'block')};
+    display: ${({ $isShrunk }) => ($isShrunk ? "none" : "block")};
     width: 60px;
   }
 
@@ -47,7 +57,9 @@ const Logo = styled.img`
 const ProfileImage = styled.img`
   width: 50px;
   border-radius: 50%;
-  transition: opacity 2.3s ease, transform 2.3s ease;
+  transition:
+    opacity 2.3s ease,
+    transform 2.3s ease;
 
   &.fade-in {
     opacity: 1;
@@ -55,7 +67,7 @@ const ProfileImage = styled.img`
   }
 
   @media (min-width: 768px) and (max-width: 900px) {
-    display: ${({ $isShrunk }) => ($isShrunk ? 'block' : 'none')};
+    display: ${({ $isShrunk }) => ($isShrunk ? "block" : "none")};
   }
 
   @media (max-width: 768px) {
@@ -99,15 +111,20 @@ const NavLink = styled.a`
   transition: color 0.3s;
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
-    width: ${({ $isActive }) => ($isActive ? '100%' : '0')}; // Subrayado dinámico basado en el estado activo
+    width: ${({ $isActive }) =>
+      $isActive
+        ? "100%"
+        : "0"}; // Subrayado dinámico basado en el estado activo
     height: 2px;
     background-color: var(--color-secondary);
     left: 50%;
     bottom: -5px;
     transform: translateX(-50%);
-    transition: width 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    transition:
+      width 0.4s ease-in-out,
+      box-shadow 0.4s ease-in-out;
     box-shadow: 0px 0px 15px 0.5px var(--color-accent);
   }
 
@@ -139,14 +156,16 @@ const NavCelulares = styled.section`
   display: flex;
   justify-content: space-around;
   padding: 5px;
-`
+`;
 
 // Imagen de perfil específica para dispositivos móviles
 const ProfileImageMobile = styled.img`
   width: 50px;
   border-radius: 50%;
-  transition: opacity 0.5s ease, transform 0.5s ease;
-`
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+`;
 
 // Contenedor para la imagen de perfil en dispositivos móviles
 const ImgPerfilContainerMobile = styled.a`
@@ -157,15 +176,14 @@ const ImgPerfilContainerMobile = styled.a`
   img {
     width: 30px;
   }
-`
+`;
 
 // Sección de contacto (personalizable para estilos adicionales)
 const SectionContacto = styled.section``;
 
-
 const Header = () => {
   // Estado para el enlace activo (por defecto se establece en '#miportafolio')
-  const [activeLink, setActiveLink] = useState('#miportafolio');
+  const [activeLink, setActiveLink] = useState("#miportafolio");
 
   // Estado para detectar si la ventana está en modo móvil (pantalla <= 900px)
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 900);
@@ -180,8 +198,8 @@ const Header = () => {
     };
 
     // Escucha el evento de redimensionamiento
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize); // Limpia el evento al desmontar
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize); // Limpia el evento al desmontar
   }, []);
 
   // Función para manejar el scroll de la página
@@ -190,7 +208,7 @@ const Header = () => {
     setShrunk(scrollPos > 50); // Si se ha desplazado > 50px, se define como "comprimido"
 
     // Obtiene todas las secciones para determinar en cuál se encuentra el scroll
-    const sections = document.querySelectorAll('section');
+    const sections = document.querySelectorAll("section");
     let lastActiveLink = activeLink;
 
     sections.forEach((section) => {
@@ -198,7 +216,10 @@ const Header = () => {
       const sectionHeight = section.offsetHeight; // Altura de la sección
 
       // Verifica si el scroll actual está dentro de los límites de la sección
-      if (scrollPos >= sectionTop - sectionHeight / 3 && scrollPos < sectionTop + sectionHeight / 3) {
+      if (
+        scrollPos >= sectionTop - sectionHeight / 3 &&
+        scrollPos < sectionTop + sectionHeight / 3
+      ) {
         const currentSectionId = `#${section.id}`;
         lastActiveLink = currentSectionId;
       }
@@ -212,10 +233,10 @@ const Header = () => {
 
   // useEffect que añade un listener de scroll para llamar a handleScroll
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll); // Limpia el evento al desmontar
+      window.removeEventListener("scroll", handleScroll); // Limpia el evento al desmontar
     };
   }, [activeLink]);
 
@@ -228,19 +249,19 @@ const Header = () => {
             src="https://avatars.githubusercontent.com/u/157653669?v=4"
             alt="Profile Image"
           />
+        ) : // Muestra el logo solo en pantallas no móviles
+        isMobile ? (
+          <></>
         ) : (
-          // Muestra el logo solo en pantallas no móviles
-          isMobile ? (
-            <>
-            </>
-          ) : (
-            <Logo src="/img/logo.gif" alt="Logo de Portafolio" />
-          )
+          <Logo src="/img/logo.gif" alt="Logo de Portafolio" />
         )}
 
         {/* Enlace "Mi Portafolio" visible solo en pantallas grandes */}
         {!isMobile && (
-          <NavLink href="#miportafolio" $isActive={activeLink === '#miportafolio'}>
+          <NavLink
+            href="#miportafolio"
+            $isActive={activeLink === "#miportafolio"}
+          >
             Mi Portafolio
           </NavLink>
         )}
@@ -249,22 +270,25 @@ const Header = () => {
       {/* Navegación visible solo en pantallas grandes */}
       {!isMobile && (
         <Nav>
-          <NavLink href="#sobremi" $isActive={activeLink === '#sobremi'}>
+          <NavLink href="#sobremi" $isActive={activeLink === "#sobremi"}>
             Sobre mí
           </NavLink>
-          <NavLink href="#skills" $isActive={activeLink === '#skills'}>
+          <NavLink href="#skills" $isActive={activeLink === "#skills"}>
             Skills
           </NavLink>
-          <NavLink href="#hobbies" $isActive={activeLink === '#hobbies'}>
+          <NavLink href="#hobbies" $isActive={activeLink === "#hobbies"}>
             Hobbies
           </NavLink>
-          <NavLink href="#formacion" $isActive={activeLink === '#formacion'}>
+          <NavLink href="#formacion" $isActive={activeLink === "#formacion"}>
             Formación
           </NavLink>
-          <NavLink href="#experiencia" $isActive={activeLink === '#experiencia'}>
+          <NavLink
+            href="#experiencia"
+            $isActive={activeLink === "#experiencia"}
+          >
             Experiencia
           </NavLink>
-          <NavLink href="#proyectos" $isActive={activeLink === '#proyectos'}>
+          <NavLink href="#proyectos" $isActive={activeLink === "#proyectos"}>
             Proyectos
           </NavLink>
         </Nav>
@@ -273,7 +297,7 @@ const Header = () => {
       {/* Enlace de contacto visible solo en pantallas grandes */}
       {!isMobile && (
         <SectionContacto>
-          <NavLink href="#contacto" $isActive={activeLink === '#contacto'}>
+          <NavLink href="#contacto" $isActive={activeLink === "#contacto"}>
             Contacto
           </NavLink>
         </SectionContacto>
@@ -284,7 +308,10 @@ const Header = () => {
         <NavCelulares>
           {Shrunk ? (
             // Imagen de perfil en modo comprimido para móviles
-            <ImgPerfilContainerMobile href="#miportafolio" $isActive={activeLink === '#miportafolio'}>
+            <ImgPerfilContainerMobile
+              href="#miportafolio"
+              $isActive={activeLink === "#miportafolio"}
+            >
               <ProfileImageMobile
                 src="https://avatars.githubusercontent.com/u/157653669?v=4"
                 alt="Profile Image"
@@ -298,25 +325,53 @@ const Header = () => {
           )}
 
           {/* Enlaces de iconos en navegación móvil */}
-          <IconLink href="#sobremi" title="Sobre mí" $isActive={activeLink === '#sobremi'}>
+          <IconLink
+            href="#sobremi"
+            title="Sobre mí"
+            $isActive={activeLink === "#sobremi"}
+          >
             <FaUser />
           </IconLink>
-          <IconLink href="#skills" title="Skills" $isActive={activeLink === '#skills'}>
+          <IconLink
+            href="#skills"
+            title="Skills"
+            $isActive={activeLink === "#skills"}
+          >
             <FaToolbox />
           </IconLink>
-          <IconLink href="#hobbies" title="Hobbies" $isActive={activeLink === '#hobbies'}>
+          <IconLink
+            href="#hobbies"
+            title="Hobbies"
+            $isActive={activeLink === "#hobbies"}
+          >
             <FaGamepad />
           </IconLink>
-          <IconLink href="#formacion" title="Formación" $isActive={activeLink === '#formacion'}>
+          <IconLink
+            href="#formacion"
+            title="Formación"
+            $isActive={activeLink === "#formacion"}
+          >
             <FaBookOpen />
           </IconLink>
-          <IconLink href="#experiencia" title="Experiencia" $isActive={activeLink === '#experiencia'}>
+          <IconLink
+            href="#experiencia"
+            title="Experiencia"
+            $isActive={activeLink === "#experiencia"}
+          >
             <FaBriefcase />
           </IconLink>
-          <IconLink href="#proyectos" title="Proyectos" $isActive={activeLink === '#proyectos'}>
+          <IconLink
+            href="#proyectos"
+            title="Proyectos"
+            $isActive={activeLink === "#proyectos"}
+          >
             <FaFolderOpen />
           </IconLink>
-          <IconLink href="#contacto" title="Contacto" $isActive={activeLink === '#contacto'}>
+          <IconLink
+            href="#contacto"
+            title="Contacto"
+            $isActive={activeLink === "#contacto"}
+          >
             <FaEnvelope />
           </IconLink>
         </NavCelulares>

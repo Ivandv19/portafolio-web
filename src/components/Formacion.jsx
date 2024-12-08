@@ -1,8 +1,8 @@
-import styled from 'styled-components';
-import { FaCode, FaLaptopCode} from 'react-icons/fa';
+import styled from "styled-components";
+import { FaCode, FaLaptopCode } from "react-icons/fa";
 
 const SectionContainer = styled.section`
- padding: 60px 20px;
+  padding: 60px 20px;
   background-color: white;
   text-align: center;
   display: flex;
@@ -13,11 +13,11 @@ const SectionContainer = styled.section`
   width: 100%;
   height: 50vh;
 
-  @media (max-width: 480px) { // Cambia a móviles
+  @media (max-width: 480px) {
+    // Cambia a móviles
     width: 100%;
-  height: auto;
+    height: auto;
   }
- 
 `;
 
 const SectionTitle = styled.h2`
@@ -26,25 +26,30 @@ const SectionTitle = styled.h2`
   color: var(--color-primary);
   position: relative; /* Necesario para posicionar el pseudo-elemento */
 
-&::after {
-  content: '';
-  position: absolute;
-  bottom: -5px; /* Ajusta la distancia de la barra al texto */
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background-color: var(--color-secondary); /* Rojo oscuro */
-  transition: width 0.4s ease, left 0.4s ease; /* Animación suave */
-}
-&:hover::after {
-  width: 100%; /* La barra se extiende a todo el ancho */
-  left: 0; /* La barra se anima desde el centro hacia los extremos */
-}
-&:hover {
-  color: var(--color-primary); /* Mantiene el color del texto al hacer hover */
-}
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -5px; /* Ajusta la distancia de la barra al texto */
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-secondary); /* Rojo oscuro */
+    transition:
+      width 0.4s ease,
+      left 0.4s ease; /* Animación suave */
+  }
+  &:hover::after {
+    width: 100%; /* La barra se extiende a todo el ancho */
+    left: 0; /* La barra se anima desde el centro hacia los extremos */
+  }
+  &:hover {
+    color: var(
+      --color-primary
+    ); /* Mantiene el color del texto al hacer hover */
+  }
 
-@media (max-width: 480px) { // Cambia a móviles
+  @media (max-width: 480px) {
+    // Cambia a móviles
     font-size: 10vw;
   }
 `;
@@ -53,7 +58,8 @@ const EducationList = styled.ul`
   list-style: none;
   padding: 0;
 
-  @media (max-width: 768px) { // Cambia a tablet
+  @media (max-width: 768px) {
+    // Cambia a tablet
     display: flex;
     flex-direction: column;
   }
@@ -74,19 +80,22 @@ const EducationItem = styled.li`
     color: #34495e;
   }
 
-  @media (max-width: 768px) { // Cambia a tablet
+  @media (max-width: 768px) {
+    // Cambia a tablet
     display: flex;
     flex-direction: column;
   }
 
-  @media (max-width: 480px) { // Cambia a móviles
+  @media (max-width: 480px) {
+    // Cambia a móviles
     width: 100%;
-  display: flex;
-  flex-direction: column;
-  margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
   }
 
-  @media (max-width: 480px) { // Cambia a móviles
+  @media (max-width: 480px) {
+    // Cambia a móviles
     font-size: 5vw;
   }
 `;
@@ -100,12 +109,11 @@ const Institution = styled.span`
 `;
 
 const SectionInfo = styled.section`
- text-align: center;
+  text-align: center;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  
-`
+`;
 
 const Formacion = () => {
   return (
@@ -114,10 +122,21 @@ const Formacion = () => {
       <SectionInfo>
         <EducationList>
           <EducationItem>
-            <FaCode /> <Title>Técnico en Programación - Bachillerato Tecnológico en Programación</Title> <Institution>CECYTEM CHIMALHUACAN II,</Institution> Chimalhuacán, Estado de México (2017-2020)
+            <FaCode />{" "}
+            <Title>
+              Técnico en Programación - Bachillerato Tecnológico en Programación
+            </Title>{" "}
+            <Institution>CECYTEM CHIMALHUACAN II,</Institution> Chimalhuacán,
+            Estado de México (2017-2020)
           </EducationItem>
           <EducationItem>
-            <FaLaptopCode /> <Title>Desarrollador Front-End Jr - Estudiante ONE (G6) - Oracle Next Education </Title> <Institution>Alura Latam </Institution> Remoto (Enero 2024 - Julio 2024)
+            <FaLaptopCode />{" "}
+            <Title>
+              Desarrollador Front-End Jr - Estudiante ONE (G6) - Oracle Next
+              Education{" "}
+            </Title>{" "}
+            <Institution>Alura Latam </Institution> Remoto (Enero 2024 - Julio
+            2024)
           </EducationItem>
         </EducationList>
       </SectionInfo>

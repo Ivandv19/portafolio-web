@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const FooterContainer = styled.footer`
-  color: #ecf0f1; /* Color de texto */
+  color: #ecf0f1; 
   padding: 20px;
   text-align: center;
   position: relative;
@@ -15,7 +15,8 @@ const FooterContainer = styled.footer`
   justify-content: center;
   align-items: center;
 
-  @media (max-width: 480px) { // Cambia a móviles
+  @media (max-width: 480px) {
+    // Cambia a móviles
     padding-bottom: 50px;
   }
 `;
@@ -43,20 +44,18 @@ const Marca = styled.h1`
   gap: 10px;
   justify-content: space-evenly;
   width: 100%;
-
 `;
 
-
 const Footer = () => {
-    return (
-        <FooterContainer>
-            <Marca>
-                <FooterText>Desarrollado por Ivan Cruz</FooterText>
-                <Logo src="/img/logo.gif" alt="Logo de Portafolio" />
-            </Marca>
-            <FooterCopyright>© 2024 Todos los derechos reservados.</FooterCopyright>
-        </FooterContainer>
-    );
-}
+  return (
+    <FooterContainer>
+      <Marca>
+        <FooterText>Desarrollado por Ivan Cruz</FooterText>
+        <Logo src="/img/logo.gif" alt="Logo de Portafolio" />
+      </Marca>
+      <FooterCopyright>© 2024 Todos los derechos reservados.</FooterCopyright>
+    </FooterContainer>
+  );
+};
 
 export default Footer;
