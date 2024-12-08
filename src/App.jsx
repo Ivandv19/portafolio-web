@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import "./App.css";
 import Contacto from "./components/Contacto";
 import Formacion from "./components/Formacion";
 import Header from "./components/Header";
